@@ -22,13 +22,12 @@ projects: 'projects.html'
                 {% if site.description %} {{ site.description }} {% endif %}
                 {% if page.about %}
                   <br/>
-                  <a class="page-link" href='{{ site.baseurl }}{{ page.about }}'>
+                  <a class="page-link-button" href='{{ site.baseurl }}{{ page.about }}'>
                     About me
                   </a>
                 {% endif %}
                 {% if page.projects %}
-                  &#8226
-                  <a class="page-link" href="{{ site.baseurl }}{{ page.projects }}">
+                  <a class="page-link-button" href="{{ site.baseurl }}{{ page.projects }}">
                     Projects
                   </a>
                 {% endif %}
