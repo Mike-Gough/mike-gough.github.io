@@ -644,8 +644,8 @@ margin on the iframe, cause it breaks stuff. */
     margin-right: 6px;
 }
 .page-link-button:hover {
+    border-color: #bfc8cd;
     color: #222;
-    border-color: #fff;
     background: #fff;
     transition: all 0.1s ease;
 }
