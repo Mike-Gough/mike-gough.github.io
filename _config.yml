@@ -12,5 +12,8 @@ google_analytics: 'UA-XXXXXXXX-X'
 gems: [jekyll-paginate]
 
 # Details for the RSS feed generator
-url:            'https://mike-gough.github.io'
-author:         'Mike Gough'
+url:                'https://mike-gough.github.io/'
+author:             'Mike Gough'
+author_description: 'Here goes the author description. You might want to place some links too in here'
+
+baseurl:            'https://mike-gough.github.io/'
