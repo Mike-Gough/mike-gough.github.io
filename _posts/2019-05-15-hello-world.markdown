@@ -3,7 +3,7 @@ layout: post
 title:  "Hello world"
 date:   2019-05-15 17:17:00
 categories:
-  - about me
+  - me
 ---
 
 The internet is full of how-to guides for architects and software developers, this blog is not one of them. I am *barely* an architect myself, having grasped at an opportunity after a relatively short career as a software developer and I wouldn’t presume to try and teach experts in the field.
