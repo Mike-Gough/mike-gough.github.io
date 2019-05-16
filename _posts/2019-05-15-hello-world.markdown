@@ -2,6 +2,7 @@
 layout: post
 title:  "Hello world"
 date:   2019-05-15 17:17:00
+permalink: /posts/me/hello-world/
 categories:
   - me
 ---
