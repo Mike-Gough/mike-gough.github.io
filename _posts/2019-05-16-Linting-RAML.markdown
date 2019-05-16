@@ -53,3 +53,5 @@ node raml-enforcer.js <main-api-file>
 
 The result will be a report which identifies errors and highlights styling issues:
 ![RAML Enforcer screenshot](/assets/images/posts/raml-enforcer-report.svg)
+
+In a future post, we will look at how *RAML Enforcer* can be used in a pre-commit hook.
