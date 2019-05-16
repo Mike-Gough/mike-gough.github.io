@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  "Hello world"
-date:   2019-05-15 17:17:00
+title:  "Linting RESTful API Modelling Language (RAML)"
+date:   2019-05-16 21:41:00
 categories:
   - Linter
   - API
@@ -9,7 +9,6 @@ categories:
   - Continuous Integration
   - Continuous Delivery
 ---
-# Linting RESTful API Modelling Language (RAML)
 Within a Continuous Integration (CI) and Continuous Delivery (CD) environment, the first principles is that no code is delivered without automated tests. Today we are going to look at this principle and how we can easily identify and correct common  coding mistakes when designing Service Contracts for Application Programming Interfaces (APIs). Specifically, we will explore how  *Linting* can be used for this purpose.
 
 ## What is Linting
