@@ -10,7 +10,7 @@ categories:
   - RAML Enforcer
 ---
 
-![GitHub Actions Workflow](/assets/images/projects/raml-enforcer-ci-cd-workflow.png)
+![GitHub Actions Workflow](/assets/images/posts/raml-enforcer-ci-cd-workflow.png)
 
 Within a Continuous Integration (CI) and Continuous Delivery (CD) environment, the first principles is that no code is delivered without automated tests. Today we are going to look at this principle and how we can easily identify and correct common  coding mistakes when designing Service Contracts for Application Programming Interfaces (APIs). Specifically, we will explore how  *Linting* can be used for this purpose.
 
