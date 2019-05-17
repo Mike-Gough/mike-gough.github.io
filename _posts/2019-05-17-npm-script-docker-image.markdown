@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Creating a docker image to run a Node.js script"
-date:   2019-05-16 21:41:00
+date:   2019-05-17 19:11:00
 permalink: /posts/docker/npm/create-image/
 categories:
   - Docker
