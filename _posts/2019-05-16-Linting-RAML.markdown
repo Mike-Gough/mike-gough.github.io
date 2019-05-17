@@ -50,7 +50,6 @@ Finally, you can execute the *Linter* by entering typing in the following comman
 node raml-enforcer.js <main-api-file>
 ```
 
-The result will be a report which identifies errors and highlights styling issues:
-![RAML Enforcer screenshot](/assets/images/posts/raml-enforcer-report.svg)
+The result will be a report which identifies errors and highlights styling issues:do
 
 In a future post, we will look at how *RAML Enforcer* can be used in a pre-commit hook.
