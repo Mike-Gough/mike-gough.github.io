@@ -46,7 +46,7 @@ copy . .
 ENTRYPOINT ["node", "<script-name>"]
 ```
 
-So the above Docker file will create a new image based on the official Node image, install our scripts NPM dependancies, copy the script to a working directory and when a container is started, automatically run the script. One thing we have overlooked is that since the Dockerfile installs NPM dependancies for us we shouldn't copy any node_modules into the image. To avoid this we can create a ```.dockerignore``` file with the following contents:
+So the above ```Dockerfile``` will create a new image based on the official Node image, install our scripts NPM dependancies, copy the script to a working directory and when a container is started, automatically run the script. One thing we have overlooked is that since the ```Dockerfile``` installs NPM dependancies for us we shouldn't copy any node_modules into the image. To avoid this we can create a file called ```.dockerignore``` with the following contents:
 ```
 node_modules
 ```
@@ -83,7 +83,7 @@ sudo docker push "<docker-hub-username>/<image-name>:latest"
 
 ![Docker push screenshot](/assets/images/posts/npm-script-docker-push.svg)
 
-Thats it! You can navigate to https://hub.docker.com/r/<docker-hub-username>/<image-name> to see your published image.
+Thats it! You can navigate to ```https://hub.docker.com/r/<docker-hub-username>/<image-name>``` to see your published image.
 
 ## References
 [1]: https://docs.docker.com/get-started/        "Docker"
