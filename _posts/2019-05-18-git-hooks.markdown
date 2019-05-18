@@ -41,4 +41,5 @@ When *RAML Enforcer* detects that the Service Contract contains errors or does n
 
 # Further reading
 [Atlassian - Git hooks](https://www.atlassian.com/git/tutorials/git-hooks)
+
 [Customising Git - Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
