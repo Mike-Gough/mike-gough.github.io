@@ -18,7 +18,7 @@ Continuous Integration (CI) is a practice that requires developers to push code 
 ## What is RAML Enforcer?
 *RAML Enforcer* is a Linter which can be used to examine source code for programatic errors, bugs, stylistic errors or suspicious patterns. In a CI toolchain, *Linting* is performed very early in the workflow, usually prior to running unit tests or integrating code into a shared repository. *RAML Enforcer* is configurable through command line arguments and provides developers with the option to select from a set of prepackaged rules to enforce coding standards. In this case, we are interested in automatically checking our Service Contract for programatic errors and bugs prior to committing any changes.
 
-# How can RAML Enforcer be run automatically?
+## How can RAML Enforcer be run automatically?
 Since our aim is to prevent RAML Service Contracts with errors from being committed to our local version control repository, we will look at how this can be implemented inside of a pre-commit hook as an automated quality check. What is a pre-commit hook, you ask? A pre-commit hook is a script that Git executes before committing staged files in the repository. Pre-commit hooks reside in local repositories within the ```.git/hooks``` directory.
 
 Assuming that you already have a Git repository that contains a RAML Service Contract that you’d like to *Lint*, let's begin by navigating to the ```.git/hooks``` directory inside of it and creating a file called ```pre-commit```. Add the following contents to the file, replacing ```<main-raml-file-path>``` with the path to your main RAML file:
@@ -32,14 +32,14 @@ Hooks need to be executable, so you may need to change the file permissions of `
 chmod +x pre-commit
 ```
 
-# Seeing it in action
+## Seeing it in action
 Now that we have a pre-commit hook in place for our repository, lets see how it looks! Make a change to your RAML Service Contract, then try and commit it. You should see a report like this printed to the screen:
 
 ![Git hook screenshot](/assets/images/posts/git-hook-linter-commit.svg)
 
 When *RAML Enforcer* detects that the Service Contract contains errors or does not meet code standards, it prevents your staged files from being committed.
 
-# Further reading
+## Further reading
 [Atlassian - Git hooks](https://www.atlassian.com/git/tutorials/git-hooks)
 
 [Customising Git - Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)

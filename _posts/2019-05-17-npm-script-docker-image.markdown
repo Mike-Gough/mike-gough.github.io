@@ -24,7 +24,7 @@ To begin with, it's important to understand what Docker is and the principles be
 
 In Docker a container is launched by running an image and an image is an executable package that includes everything needed to run an application.
 
-# Great.. so how do we create an image?
+## Great.. so how do we create an image?
 To begin with, we will need to create file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To run a Node.js script, our Dockerfile will need to contain the following, replacing ```<script-name>``` with the filename of your script:
 ```
 # The first instruction in a Dockerfile must be FROM, which selects a base image. Since it's recommended to use official Docker images, we will use the official image for node. We will chose a specific image rather than defaulting to latest as future node versions may break our application.
