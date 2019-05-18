@@ -1,0 +1,42 @@
+---
+layout: post
+title:  "Git pre-commit hook for Linting RESTful API Modelling Language (RAML)"
+date:   2019-05-18 09:45:00
+permalink: /posts/linting/raml-enforcer/git/hooks/
+categories:
+  - Linting
+  - Git
+  - Hooks
+  - API
+  - Continuous Integration
+  - Continuous Delivery
+  - RAML Enforcer
+---
+
+Within a Continuous Integration (CI) environment developers push code into a shared repository several times a day. When pushing code to a shared repository, we should strive to ensure that our code is syntactically correct and builds so that other developers can grab the latest copy and begin iterating upon it easily. Today we are going to look at this principle and how we can easily identify and correct common coding mistakes when designing Service Contracts for Application Programming Interfaces (APIs). Specifically, we will explore how we can use Git hooks as a mechanism for ensuring a RAML Service Contract is valid using a *Linter* called *RAML Enforcer*.
+
+## What is RAML Enforcer?
+*RAML Enforcer* is a Linter which can be used to examine source code for programatic errors, bugs, stylistic errors or suspicious patterns. In a CI toolchain, *Linting* is performed very early in the workflow, usually prior to running unit tests or integrating code into a shared repository. *RAML Enforcer* is configurable through command line arguments and provides developers with the option to select from a set of prepackaged rules to enforce coding standards. In this case, we are interested in automatically checking our Service Contract for programatic errors and bugs prior to committing any changes.
+
+# How can RAML Enforcer be run automatically?
+Since our aim is to prevent RAML Service Contracts with errors from being committed to our local version control repository, we will look at how this can be implemented inside of a pre-commit hook as an automated quality check. A pre-commit hook is a script that Git executes before committing staged files in the repository. Pre-commit hooks reside in local repositories within the ```.git/hooks``` directory. Let's begin by navigating to ```.git/hooks``` and creating a file called ```pre-commit```. Assuming your main RAML file is located in the root directory and called ```api.raml```,  you would add the following contents to your ```pre-commit```:
+```
+#!/bin/sh
+echo "# Running RAML Enforcer"
+sudo docker run --init --rm --volume $(pwd):/tmp "mikeyryan/raml-enforcer:latest" /tmp/api.raml
+```
+Hooks need to be executable, so you may need to change the file permissions of ```pre-commit``` if your creating it from scratch. You can do so by running the following command:
+```
+chmod +x pre-commit 
+```
+
+# Seeing it in action
+Now that we have a pre-commit hook in place for our repository, lets see how it looks! Try and make a commit and you should see a report like this printed to the screen:
+
+![Git hook screenshot](/assets/images/posts/git-hook-linter-commit.svg)
+
+When *RAML Enforcer* detects that the Service Contract contains errors or does not meet code standards, it prevents your staged files from being committed.
+
+# Further reading
+![Atlassian - Git hooks](https://www.atlassian.com/git/tutorials/git-hooks)
+![Customising Git - Git Hooks](https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks)
