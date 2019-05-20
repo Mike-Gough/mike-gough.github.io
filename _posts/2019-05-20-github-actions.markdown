@@ -71,7 +71,7 @@ action "Build Docker Image" {
 action "Tag Docker Image with build number" {
   uses = "actions/docker/cli@8cdf801b322af5f369e00d85e9cf3a7122f49108"
   needs = ["Build Docker Image"]
-  args = "tag <project-name> <docker-hub-username>/<project-name>:$GITHUB_SHA" 
+  args = "tag <project-name> <docker-hub-username>/<project-name>:$GITHUB_SHA"
 }
 
 # Automatically push the image to Docker Hub
@@ -112,7 +112,7 @@ action "Archive release" {
 }
 ```
 
-That was a lot to digest, so let’s take a look at the actions in this workflow. The workflow is trigged by any push to the repository. The first action filters out all pushes other than those to the master branch. It then attempts to login to Docker Hub using the credentials you have supplied as secrets. 
+That was a lot to digest, so let’s take a look at the actions in this workflow. The workflow is trigged by any push to the repository. The first action filters out all pushes other than those to the master branch. It then attempts to login to Docker Hub using the credentials you have supplied as secrets.
 
 Once authenticated, an action builds a Docker image, another tags it and yet another pushes it to Docker Hub. The next action is a filter, it checks if the push to the master branch was tagged as a release. If the push was a release then the next action tags the Docker image as latest and another pushes it to Docker Hub. Finally, an action zips the source code up and publishes it to the release page on GitHub.
 
@@ -122,4 +122,5 @@ To see all of this in action, commit the ```main.workflow``` file to the reposit
 
 ## References
 - [Martin Fowler - Continuous Delivery][1]
-[1]: https://martinfowler.com/bliki/ContinuousDelivery.html      "Martin Fowler - Continuous Delivery"
+
+[1]: https://martinfowler.com/bliki/ContinuousDelivery.html        "Martin Fowler - Continuous Delivery"
