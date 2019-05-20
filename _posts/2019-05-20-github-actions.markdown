@@ -18,13 +18,13 @@ In this post we will assume that you practice Continuous Integration (CI) and ha
 Before we dive into how we can achieve this goal, it’s important to understand the principles behind what we are trying to achieve and why. If you’re already familiar with Continuous Delivery and Continuous Deployment as well as the distinction between the two, feel free to skip this next part.
 
 ### What is Continuous Delivery?
-Continuous Delivery is a software development discipline where you build software in such a way that the it can be released to production at any time<sup>[1]</sup>. In a Continuous Delivery workflow, each development change that is pushed to the main repository is ready to be shipped, however, the action of shipping requires human approval. Although there is usually a focus on automated testing as part of this process, in many organisations the risk of promoting a release to production is shouldered by the individual approving that release. Onus is placed on the developers to prioritise keeping the code deliverable over implementing new features.
+Continuous Delivery is a software development discipline where you build software in such a way that the it can be released to production at any time<sup>[1]</sup>. In a Continuous Delivery workflow, each development change that is pushed to the main repository is ready to be shipped. However, the action of shipping requires human approval. Although there is usually a focus on automated testing as part of this process, in many organisations the risk of promoting a release to production is shouldered by the individual approving that release. Onus is placed on the developers to prioritise keeping the code deliverable over implementing new features.
 
 ### How does Continuous Delivery differ from Continuous Deployment?
-By contrast, in Continuous Deployment each development change that is pushed to the main repository is automatically released to production, without any human intervention. In this workflow, a strong emphasis is placed on automated testing, as it should not be possible to merge code into the main development branch without that code passing a test suite. This means that the quality of your test suite determines the level of risk for a release, and automated testing must be prioritised during development. As such it’s important to ensure you don’t fall into the trap of mistaking good code coverage in your test suite for good quality tests. The onus is placed on developers within the team to ensure that the quality of tests presented in code reviews remains high.
+By contrast, in Continuous Deployment each development change that is pushed to the main repository is automatically released to production, without any human intervention. In this workflow, a strong emphasis is placed on automated testing, as it should not be possible to merge code into the main development branch without that code passing a test suite. This means that the quality of your test suite determines the level of risk for a release, and automated testing must be prioritised during development. As such it’s important to ensure you don’t fall into the trap of mistaking good code coverage in your test suite for good quality tests. Developers within the team must ensure that the quality of tests presented in code reviews remains high.
 
 ## Using Github actions for Continuous Deployment
-Now that we understand what Continuous Deployment is and what we are aiming for, let’s look at how we would create a workflow that builds a Docker image and publishes it to Docker Hub whenever a push to the master Git branch occurs. To begin, you’ll need to navigate to GitHub, ensure you are logged in and have opened the repository that you would like to work with. The repository should already contain a ```Dockerfile```. Click the *Actions* button at the top of the page:
+Now that we understand what Continuous Deployment is and what we are aiming for, let’s create a workflow that builds a Docker image and publishes it to Docker Hub. To begin, you’ll need to navigate to GitHub, ensure you are logged in and have opened the repository that you would like to work with. The repository should already contain a ```Dockerfile```. Click the *Actions* button at the top of the page:
 ![GitHub actions button](/assets/images/posts/github-actions-title-bar.jpg)
 
 GitHub will prompt you to confirm that you’d like to create a new workflow, click the *Create a new workflow* button:
@@ -35,7 +35,7 @@ Leave the name of the file as ```main.workflow``` and click the button labelled 
 
 Add the following to the contents of the editor, replacing ```<project-name>``` and ```<docker-hub-username>``` with the name of your project and username for Docker Hub:
 ```
-# Create a new workflow that’s trigger on a push to master
+# Create a new workflow that’s triggered by a push to master
 workflow "Build on push" {
   on = "push"
   resolves = [
