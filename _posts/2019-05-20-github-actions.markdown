@@ -20,7 +20,7 @@ Before we dive into how we can achieve this goal, it’s important to understand
 ### What is Continuous Delivery?
 Continuous Delivery is a software development discipline where you build software in such a way that the it can be released to production at any time<sup>[1]</sup>. In a Continuous Delivery workflow, each development change that is pushed to the main repository is ready to be shipped, however, the action of shipping requires human approval. Although there is usually a focus on automated testing as part of this process, in many organisations the risk of promoting a release to production is shouldered by the individual approving that release. Onus is placed on the developers to prioritise keeping the code deliverable over implementing new features.
 
-### How does Continuous Delivery.  differ from Continuous Deployment?
+### How does Continuous Delivery differ from Continuous Deployment?
 By contrast, in Continuous Deployment each development change that is pushed to the main repository is automatically released to production, without any human intervention. In this workflow, a strong emphasis is placed on automated testing, as it should not be possible to merge code into the main development branch without that code passing a test suite. This means that the quality of your test suite determines the level of risk for a release, and automated testing must be prioritised during development. As such it’s important to ensure you don’t fall into the trap of mistaking good code coverage in your test suite for good quality tests. The onus is placed on developers within the team to ensure that the quality of tests presented in code reviews remains high.
 
 ## Using Github actions for Continuous Deployment
