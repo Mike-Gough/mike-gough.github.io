@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Continuous Deployment with GitHub Actions and Docker Hub
+title:  “Continuous Deployment with GitHub Actions and Docker Hub
 date:   2019-05-20 16:25:00
 permalink: /posts/docker/
 categories:
@@ -121,4 +121,5 @@ To see all of this in action, commit the ```main.workflow``` file to the reposit
 ![Git hook screenshot](/assets/images/posts/github-actions-run-results.jpg)
 
 ## References
+- [Martin Fowler - Continuous Delivery][1]
 [1]: https://martinfowler.com/bliki/ContinuousDelivery.html      "Martin Fowler - Continuous Delivery"
