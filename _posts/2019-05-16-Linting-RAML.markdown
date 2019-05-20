@@ -24,15 +24,15 @@ In a CI toolchain, *Linting* is performed very early in the workflow, usually pr
 ## So... why Lint your Service Contracts?
 Whether you're implementing a Service Layer, Enterprise Service Bus or Application Network, as your API progresses through the various stages of development, code quality becomes critical. Collaborating with your customers to ensure that the design of an API meets functional requirements is a given, but it's also important to ensure that it doesn't include any structural issues. A poorly structured API can impact the reliability and efficiency of its consumers as well as make the implementation harder. For those employ a micro-services architecture or find themselves working with large teams, a consistent approach to the design of APIs is particularly important for maintainability.
 
-*Linting* can be used to find and resolve both functional and structural issues with an APIs Service Contract. It can identify and correct common code mistakes without having to run your code or execute tests. Some of the key benefits a *Linter* provides you with include:
+*Linting* can be used to find and resolve both functional and structural issues with an API'cs Service Contract. It can identify and correct common code mistakes without having to run your code or execute tests. Some of the key benefits a *Linter* provides you with include:
 * Avoiding errors - they give you immediate feedback about things that look like errors or could potentially be dangerous
 * Readability - they can drive you to write cleaner and more constant code
 * Maintainability - they can be used to help developers working as part of a team to adhere to a uniform coding standards
 * Portability - they can be used within an IDE, text editors such as Visual Studio Code, a command line and continuous integration tools
-* Automatic fixes - they can offer a prettier, enabling code style issues to be automatically fixed
+* Automatic fixes - using a prettier they can enabling code style issues to be fixed automatically
 
 ## Integrating Linting into your RAML Service Contract
-Unfortunately, at the time of writing most of the RAML *Linters* available are just wrapping an open source parser. This allows them identify errors, but does little in the way of helping improving the readability of maintainability of your Service Contracts. This is why I decided to build my own *Linter*, called *RAML Enforcer*. *RAML Enforcer* is a command line tool for identifying and reporting on patterns found within RAML code. It supports, RAML 0.8, RAML 1.0, Includes and Fragments.
+Unfortunately, at the time of writing most of the RAML *Linters* available are just wrapping an open source parser. Parsing RAML helps to identify errors, but does little in the way of improving the readability or maintainability of your Service Contracts. This is why I decided to build my own *Linter*, called *RAML Enforcer*. *RAML Enforcer* is a command line tool for identifying and reporting on patterns found within RAML code. It supports, RAML 0.8, RAML 1.0, Includes and Fragments.
 
 Although there are a few different options for running *RAML Enforcer*, in this case we will build and run it directly from the source code. To get up and running you'll need to ensure you have Git, Node.js and NPM installed on your local machine. Once you have them, you can begin by opening up your Command Line Interface (CLI) of choice and using it to clone the source code of the project from GitHub:
 ```bash
@@ -45,11 +45,13 @@ cd raml-enforcer && \
   npm install
 ```
 
-Finally, you can execute the *Linter* by entering typing in the following command and replacing *<main-api-file>* with the path to the main RAML file for your service contract:
+Finally, you can execute the *Linter* by using the following command, replacing *<main-api-file>* with the path to the main RAML file for your service contract:
 ```bash
 node raml-enforcer.js <main-api-file>
 ```
 
-The result will be a report which identifies errors and highlights styling issues:do
+The result will be a report which identifies errors and highlights styling issues:
+
+![RAML Enforcer Report](assets/images/posts/raml-enforcer-report.svg)
 
 In a future post, we will look at how *RAML Enforcer* can be used in a pre-commit hook.

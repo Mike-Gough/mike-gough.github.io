@@ -21,13 +21,13 @@ Continuous Integration (CI) is a practice that requires developers to push code 
 ## How can RAML Enforcer be run automatically?
 Git has a mechanism for triggering scripts when interesting events occur, called hooks. There are two main categories of hooks, client side and server side. To address our goal of checking the quality of our RAML before integrating it into our local version control repository, we will look at using a local pre-commit hook. So.. what is a pre-commit hook, you ask? A pre-commit hook is a script that Git executes before committing staged files in the repository. In this case it will allow us to inspect the snapshot that’s about to be committed and see if it meets our code quality standards. Pre-commit hooks reside in local repositories within the ```.git/hooks``` directory.
 
-Assuming that you already have a Git repository that contains a RAML Service Contract that you’d like to *Lint*, let's begin by navigating to the ```.git/hooks``` directory inside of it and creating a file called ```pre-commit```. Add the following contents to the file, replacing ```<main-raml-file-path>``` with the path to your main RAML file:
+Assuming that you already have a Git repository that contains a RAML Service Contract that you’d like to *Lint*, let's begin by navigating to the ```.git/hooks``` directory and creating a file called ```pre-commit```. Add the following contents to the file, replacing ```<main-raml-file-path>``` with the path to your main RAML file:
 ```
 #!/bin/sh
 echo "# Running RAML Enforcer"
 sudo docker run --init --rm --volume $(pwd):/tmp "mikeyryan/raml-enforcer:latest" /tmp/<main-raml-file-path>
 ```
-Hooks need to be executable, so you may need to change the file permissions of ```pre-commit``` if your creating it from scratch. You can do so by running the following command:
+Hooks need to be executable, so you may need to change the file permissions of ```pre-commit``` if you're creating it from scratch. You can do so by running the following command:
 ```
 chmod +x pre-commit
 ```

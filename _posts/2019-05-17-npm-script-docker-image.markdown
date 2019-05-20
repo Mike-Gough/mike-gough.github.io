@@ -22,7 +22,7 @@ To begin with, it's important to understand what Docker is and the principles be
 * Scalable - You can scale your containers horizontally; increasing, decreasing or distributing replicas of them automatically
 * Stackable - You can stack your containers vertically, defining  a stack declaratively
 
-In Docker a container is launched by running an image and an image is an executable package that includes everything needed to run an application.
+In Docker a container is launched by running an image, and an image is an executable package that includes everything needed to run an application.
 
 ## Great.. so how do we create an image?
 To begin with, we will need to create file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To run a Node.js script, our Dockerfile will need to contain the following, replacing ```<script-name>``` with the filename of your script:
@@ -59,7 +59,7 @@ sudo docker build --no-cache --tag "<docker-hub-username>/<image-name>:latest" .
 ![Docker build screenshot](/assets/images/posts/npm-script-docker-build.svg)
 
 ## Running our image
-Having built a Docker image, we can now run it locally by using the following command and replacing ```<docker-hub-username>``` with your Docker Hub username and ```<image-name>``` with the name user earlier:
+Having built a Docker image, we can now run it locally by using the following command and replacing ```<docker-hub-username>``` with your Docker Hub username and ```<image-name>``` with the name used earlier:
 ```
 sudo docker run --init --rm --volume $(pwd):/tmp "<docker-hub-username>/<image-name>:latest" <image-args>
 ```
