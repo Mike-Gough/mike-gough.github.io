@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  Containerising the Mule Enterprise Service Bus (ESB)
+title:  Containerising Mule Enterprise Service Bus (ESB)
 date:   2019-05-25 08:35:00
-permalink: /posts/docker/
+permalink: /posts/docker/mule/esb/
 categories:
   - Docker
   - Mule

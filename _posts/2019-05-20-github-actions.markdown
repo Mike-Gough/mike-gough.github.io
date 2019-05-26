@@ -2,7 +2,7 @@
 layout: post
 title:  Continuous Deployment with GitHub Actions and Docker Hub
 date:   2019-05-20 16:25:00
-permalink: /posts/docker/
+permalink: /posts/docker/github/actions/
 categories:
   - Docker
   - Git
