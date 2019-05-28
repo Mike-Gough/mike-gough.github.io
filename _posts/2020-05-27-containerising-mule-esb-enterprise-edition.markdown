@@ -25,10 +25,11 @@ LABEL maintainer="https://mike.gough.me"
 
 # Define environment variables as arguments that can be passed in when building this image.
 ARG MULE_VERSION=4.2.0
+ARG MULE_MD5=0f098b4bbc65d27cee9af59904ed6545
 ARG TZ=Australia/Sydney
 
 ENV MULE_HOME=/opt/mule
-ENV MULE_DOWNLOAD_URL https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/${MULE_VERSION}/mule-standalone-${MULE_VERSION}.tar.gz
+ENV MULE_DOWNLOAD_URL http://s3.amazonaws.com/new-mule-artifacts/mule-ee-distribution-standalone-${MULE_VERSION}.zip
 
 # Set the timezone
 RUN echo ${TZ} > /etc/timezone
@@ -38,15 +39,22 @@ WORKDIR ${MULE_HOME}
 
 RUN mkdir -p /opt && \
     cd /opt && \
-    wget "$MULE_DOWNLOAD_URL" -O mule-standalone-${MULE_VERSION}.tar.gz
+    wget "$MULE_DOWNLOAD_URL" -O mule-ee-distribution-standalone-${MULE_VERSION}.zip
 
 # Unpack Mule ESB
-RUN tar xvzf /opt/mule-standalone-${MULE_VERSION}.tar.gz -C /opt && \
-  rm -f /opt/mule-standalone-${MULE_VERSION}.tar.gz
+RUN cd /opt && \
+  rm -rf mule-enterprise-standalone-${MULE_VERSION} && \
+  unzip mule-ee-distribution-standalone-${MULE_VERSION}.zip && \
+  rm -rf mule-standalone-${MULE_VERSION} && \
+  rm -f mule-ee-distribution-standalone-${MULE_VERSION}.zip && \
+  mv mule-enterprise-standalone-${MULE_VERSION} mule-standalone-${MULE_VERSION}
 
 RUN cd /opt && \
   rm -rf mule && \
   ln -s mule-standalone-${MULE_VERSION} mule
+
+RUN echo "$MULE_HOME"
+RUN echo "$MULE_BASE"
 
 # Set the mount locations
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains", "${MULE_HOME}/patches", "${MULE_HOME}/.mule"]
@@ -54,11 +62,8 @@ VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_H
 # Run this command on container start
 CMD [ "${MULE_HOME}/bin/mule"]
 
-# Expose the default HTTP port 8081
-EXPOSE 8081
-
-# Expose the default JMX port
-EXPOSE 1099
+# HTTP listener default port, remote debugger, JMX, MMC agent, AMC agent
+EXPOSE 8081 5000 1098 7777 9997
 ```
 
 The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
