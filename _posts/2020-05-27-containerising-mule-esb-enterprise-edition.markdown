@@ -8,16 +8,21 @@ categories:
   - Mule
   - Mule ESB
 ---
-![Docker logo](/assets/images/posts/docker-logo.svg)
 
 In this post we will assume that you have Docker and would like to create an image that contains the Enterprise Edition of the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out [mikeyryan/mule](https://hub.docker.com/r/mikeyryan/mule) on Docker Hub.
 
 ## Why Containerise the Mule ESB?
+
+![MuleSoft logo](/assets/images/posts/mulesoft-logo.svg)
+
 The Mule ESB will run perfectly fine anywhere that you can install Java. However, you may find yourself in need of a solution that's more scalable than installing it on a standalone machine. A typical scenario for using the Mule ESB is to install it on a standalone server and then deploy all of your applications to it. This comes with a few disadvantages, primarily that a single unhealthy app can impact others in the same Mule ESB. One method of addressing this is to run multiple versions of the Mule ESB on the server, which is where Docker comes in.
 
 With Docker we can easily deploy containers with the Mule ESB and a single application that will run in an independent isolated environment. This can also be useful for portability, as Docker will help us ensure that the application will run the same locally as it would when it's deployed to a server or the cloud.
 
-## Creating a Mule ESB Docker image
+## Creating a Docker image
+
+![Docker logo](/assets/images/posts/docker-logo.svg)
+
 To begin with, we will need to create file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To run the Mule ESB, our Dockerfile will need to contain the following:
 ```
 # The first instruction in a Dockerfile must be FROM, which selects a base image. Since it's recommended to use official Docker images, we will use the official image for openjdk.
@@ -78,5 +83,9 @@ Thats it! In a future post we will look at how we can use this image as the base
 
 ## References
 - [Docker Hub - Mule docker images][1]
+- [Mule Installation][2]
+- [Mule 4 Standalone][3]
 
-[1]: https://hub.docker.com/r/mikeyryan/mule        "mikeyryan/mule"
+[1]: https://hub.docker.com/r/mikeyryan/mule "mikeyryan/mule"
+[2]: https://docs.mulesoft.com/mule-runtime/4.2/mule-standalone "Mule Installation"
+[3]: https://www.mulesoft.com/lp/dl/mule-esb-enterprise "Mule 4 standalone"
