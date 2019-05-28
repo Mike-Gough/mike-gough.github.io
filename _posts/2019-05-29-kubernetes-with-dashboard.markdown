@@ -1,26 +1,38 @@
 ---
 layout: post
-title:  Setup Kubernetes and its official dashboard on Docker desktop
+title:  Setup Kubernetes and its dashboard on Docker Desktop
 date:   2019-05-29 07:14:00
 permalink: /posts/docker/kubernetes-with-dashboard
 categories:
   - Docker
   - Kubernetes
+  - K8s
 ---
 In this post we will walk through how you can install and run a single node Kubernetes instance using Docker Desktop Community Edition for Windows or Mac.
 
 ## Prerequisites
 To keep things simple, we will assume you have access to a bash Command Line Interface (CLI) on your local machine. Mac users should have access to the _Terminal_ application while Windows users will need to install one of several options, including but not limited to:
-* A Linux subsystem
-* Git Bash
+* [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+* [Git for Windows (Git Bash)](https://gitforwindows.org)
+
+## What is Kubernetes
+
+Kubernetes (K8s) is a portable open source platform for automating the deployment, scaling and management of containerised applications. The name Kubernetes originates from the Greek language, meaning helmsman or pilot and is the root of the words governor and cybernetic. It emerged from the need for declarative configuration for the orchestration of containers, which had just be popularised by Docker. Although Docker provided a simple way to package, distributed and deploy applications, its focus on single machine left a gap for managing it at enterprise or cloud scales.
+
+K8s can be thought of as:
+* a container platform;
+* a microservices platform; and
+* a portable cloud platform.
+
+It's ability to orchestrate computing, networking, and storage infrastructure on behalf of user workloads makes it particularly well suited for hosting distributed applications such as an Enterprise Service Bus (ESB).
 
 ## Install Docker Desktop
 
 ![Docker logo](/assets/images/posts/docker-logo.svg)
 
-If you want to get started with Kubernetes on a Windows 10 or Mac operating system, Docker Desktop is the quickest way. Docker Desktop comes in two editions, a free community edition and a paid enterprise edition. It includes everything you need to build, test and ship containerised applications right from your machine and for this walkthrough, either edition will be suitable. To obtain a copy, navigate [here](https://www.docker.com/products/docker-desktop), and follow the instructions to download and install it.
+If you want to get started with Kubernetes on a Windows 10 or Mac OS operating system, Docker Desktop is the quickest way. Docker Desktop comes in two editions, a free community edition and a paid enterprise edition. It includes everything you need to build, test and ship containerised applications right from your machine and for this walkthrough, either edition will be suitable. To obtain a copy, head to the [Docker website](https://www.docker.com/products/docker-desktop), and follow the instructions to download and install it.
 
-Once installed, you can verify that Docker is up and running by opening your Command Line Interface (CLI) of choice and executing the following command:
+Once installed, you can verify that Docker is up and running by opening your CLI of choice and executing the following command:
 ```
 docker version
 ```
@@ -123,6 +135,8 @@ Copy the token that was printed to the screen, navigate back to the browser wind
 ## References
 - [Web UI (Dashboard)][1]
 - [Creating sample user][2]
+- [What is Kubernetes][3]
 
 [1]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/ "Web UI (Dashboard)"
 [2]: https://github.com/kubernetes/dashboard/wiki/Creating-sample-user "Creating sample user"
+[3]: https://kubernetes.io/docs/concepts/overview/what-is-kubernetes/ "What is kubernetes"
