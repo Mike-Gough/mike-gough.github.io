@@ -60,9 +60,6 @@ RUN cd /opt && \
   rm -rf mule && \
   ln -s mule-standalone-${MULE_VERSION} mule
 
-RUN echo "$MULE_HOME"
-RUN echo "$MULE_BASE"
-
 # Set the mount locations
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains", "${MULE_HOME}/patches", "${MULE_HOME}/.mule"]
 
@@ -75,7 +72,7 @@ EXPOSE 8081 5000 1098 7777 9997
 
 The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
 ```
-docker build --build-arg MULE_VERSION=4.2.0 -t mule:ce-4-2-0 .
+docker build --build-arg MULE_VERSION=4.2.0 -t mule:ee-4-2-0 .
 ```
   Unfortunaty at this time it newer versions of Mule (4 and above) are aware of being containerised and force you to provide a licence instead of creating a 30 day trial license. You can get around this by obtaining a licence and mounting it inside the container or by using an older version of Mule.
 

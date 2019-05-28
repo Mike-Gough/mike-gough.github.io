@@ -61,11 +61,8 @@ VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_H
 # Run this command on container start
 CMD [ "${MULE_HOME}/bin/mule"]
 
-# Expose the default HTTP port 8081
-EXPOSE 8081
-
-# Expose the default JMX port
-EXPOSE 1099
+# HTTP listener default port, remote debugger, JMX, MMC agent, AMC agent
+EXPOSE 8081 5000 1098 7777 9997
 ```
 
 The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
