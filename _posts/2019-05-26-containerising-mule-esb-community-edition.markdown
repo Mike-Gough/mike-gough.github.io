@@ -8,7 +8,9 @@ categories:
   - Mule
   - Mule ESB
 ---
-In this post we will assume that you have Docker and would like to create an image that contains the Community Edition of the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out mikeyryan/mule on Docker Hub.
+![Docker logo](/assets/images/posts/docker-logo.svg)
+
+In this post we will assume that you have Docker and would like to create an image that contains the Community Edition of the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out [mikeyryan/mule](https://hub.docker.com/r/mikeyryan/mule) on Docker Hub.
 
 ## Why Containerise the Mule ESB?
 The Mule ESB will run perfectly fine anywhere that you can install Java. However, you may find yourself in need of a solution that's more scalable than installing it on a standalone machine. A typical scenario for using the Mule ESB is to install it on a standalone server and then deploy all of your applications to it. This comes with a few disadvantages, primarily that a single unhealthy app can impact others in the same Mule ESB. One method of addressing this is to run multiple versions of the Mule ESB on the server, which is where Docker comes in.
@@ -67,3 +69,8 @@ docker build --build-arg MULE_VERSION=4.2.0 -t mule:ce-4-2-0 .
 ```
 
 Thats it! In a future post we will look at how we can use this image as the base for another image which contains a Mule application.
+
+## References
+- [Docker Hub - Mule docker images][1]
+
+[1]: https://hub.docker.com/r/mikeyryan/mule        "mikeyryan/mule"
