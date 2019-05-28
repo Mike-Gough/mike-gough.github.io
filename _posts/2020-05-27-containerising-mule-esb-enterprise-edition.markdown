@@ -1,14 +1,14 @@
 ---
 layout: post
-title:  Containerising Mule Enterprise Service Bus (ESB)
-date:   2019-05-25 08:35:00
-permalink: /posts/docker/mule/esb/
+title:  Containerising Mule Enterprise Service Bus (ESB) Enterprise Edition
+date:   2019-05-27 11:40:00
+permalink: /posts/docker/mule/esb/enterprise-edition
 categories:
   - Docker
   - Mule
   - Mule ESB
 ---
-In this post we will assume that you have Docker and would like to create an image that contains the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out mikeyryan/mule on Docker Hub.
+In this post we will assume that you have Docker and would like to create an image that contains the Enterprise Edition of the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out mikeyryan/mule on Docker Hub.
 
 ## Why Containerise the Mule ESB?
 The Mule ESB will run perfectly fine anywhere that you can install Java. However, you may find yourself in need of a solution that's more scalable than installing it on a standalone machine. A typical scenario for using the Mule ESB is to install it on a standalone server and then deploy all of your applications to it. This comes with a few disadvantages, primarily that a single unhealthy app can impact others in the same Mule ESB. One method of addressing this is to run multiple versions of the Mule ESB on the server, which is where Docker comes in.
@@ -25,7 +25,6 @@ LABEL maintainer="https://mike.gough.me"
 
 # Define environment variables as arguments that can be passed in when building this image.
 ARG MULE_VERSION=4.2.0
-ARG MULE_MD5=0f098b4bbc65d27cee9af59904ed6545
 ARG TZ=Australia/Sydney
 
 ENV MULE_HOME=/opt/mule
@@ -62,9 +61,10 @@ EXPOSE 8081
 EXPOSE 1099
 ```
 
-The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. After downloading the Mule ESB it computes the MD5 checksum, also passed as an optional argument, to verify the integrity of the file download. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
+The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
 ```
-docker build --build-arg MULE_VERSION=4.2.0 --build-arg MULE_MD5=0f098b4bbc65d27cee9af59904ed6545 -t mule:ce-4-2-0 .
+docker build --build-arg MULE_VERSION=4.2.0 -t mule:ce-4-2-0 .
 ```
+  Unfortunaty at this time it newer versions of Mule (4 and above) are aware of being containerised and force you to provide a licence instead of creating a 30 day trial license. You can get around this by obtaining a licence and mounting it inside the container or by using an older version of Mule.
 
 Thats it! In a future post we will look at how we can use this image as the base for another image which contains a Mule application.
