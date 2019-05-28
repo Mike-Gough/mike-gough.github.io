@@ -11,7 +11,7 @@ categories:
 In this post we will walk through how you can run a simple Hello World Mule 4 application inside of a Docker container.
 
 ## Prerequisites
-To keep things brief, we will assume you already have JDK 8, Maven 3 and Docker installed and setup correctly. Your docker host needs to have at least 1GB (or more) of available RAM to run Mule ESB Server Runtime. Please refer to the (Mule ESB hardware requirements)[https://docs.mulesoft.com/mule-runtime/4.2/hardware-and-software-requirements] documentation for additional information.
+To keep things brief, we will assume you already have JDK 8, Maven 3 and Docker installed and setup correctly. Your docker host needs to have at least 1GB (or more) of available RAM to run Mule ESB Server Runtime. Please refer to the [Mule ESB hardware requirements](https://docs.mulesoft.com/mule-runtime/4.2/hardware-and-software-requirements) documentation for additional information.
 
 ## Hello world Mule 4 application
 
@@ -58,4 +58,13 @@ Hello from Mule 4.2.0
 ```
 
 5. Conclusion
-It is easy to run Mule Applications inside Docker Containers. The mikeyryan/mule image provides an easy way to get Mule applications up and running.
+We have previously walked through how to containerise the Mule ESB and now we've demonstrated how easy it is to run Mule applications inside Docker containers. For those who prefer not to adventure downt the path of containerising the Mule ESB themselves, they can still containerise a Mule application using the mikeyryan/mule image to easily get up and running.
+
+## References
+- [Containerising Mule Enterprise Service Bus (ESB) Enterprise Edition][1]
+- [Containerising Mule Enterprise Service Bus (ESB) Community Edition][2]
+- [Mule 4 - Example hello world application repository][3]
+
+[1]: https://mike.gough.me/posts/docker/mule/esb/enterprise-edition "Containerising Mule Enterprise Service Bus (ESB) Enterprise Edition"
+[2]: https://mike.gough.me/posts/docker/mule/esb/community-edition "Containerising Mule Enterprise Service Bus (ESB) Community Edition"
+[3]: https://github.com/Mike-Gough/mule-4-hello-world "Mike-Gough/mule-4-hello-world"
