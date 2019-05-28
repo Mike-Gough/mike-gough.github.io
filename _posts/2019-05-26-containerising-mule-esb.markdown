@@ -24,30 +24,22 @@ FROM openjdk:8-jdk
 LABEL maintainer="https://mike.gough.me"
 
 # Define environment variables as arguments that can be passed in when building this image.
-ARG BUILD_DATE=25052019
 ARG MULE_VERSION=4.2.0
 ARG MULE_MD5=0f098b4bbc65d27cee9af59904ed6545
-ARG TINI_SUBREAPER=
 ARG TZ=Australia/Sydney
 
-ENV MULE_HOME=/opt/mule-standalone-4.2.0
+ENV MULE_HOME=/opt/mule
 ENV MULE_DOWNLOAD_URL https://repository-master.mulesoft.org/nexus/content/repositories/releases/org/mule/distributions/mule-standalone/${MULE_VERSION}/mule-standalone-${MULE_VERSION}.tar.gz
 
 # Set the timezone
 RUN echo ${TZ} > /etc/timezone
-
-# Create a user for the Mule ESB to run as
-RUN adduser --disabled-password --gecos "" mule
 
 # Set the working directory
 WORKDIR ${MULE_HOME}
 
 RUN mkdir -p /opt && \
     cd /opt && \
-    wget "$MULE_DOWNLOAD_URL"
-
-RUN cd /opt && \
-  echo "${MULE_MD5}  mule-standalone-${MULE_VERSION}.tar.gz" | md5sum -c
+    wget "$MULE_DOWNLOAD_URL" -O mule-standalone-${MULE_VERSION}.tar.gz
 
 # Unpack Mule ESB
 RUN tar xvzf /opt/mule-standalone-${MULE_VERSION}.tar.gz -C /opt && \
@@ -55,8 +47,7 @@ RUN tar xvzf /opt/mule-standalone-${MULE_VERSION}.tar.gz -C /opt && \
 
 RUN cd /opt && \
   rm -rf mule && \
-  ln -s mule-standalone-${MULE_VERSION} mule && \
-  cd /opt/mule-standalone-${MULE_VERSION}
+  ln -s mule-standalone-${MULE_VERSION} mule
 
 # Set the mount locations
 VOLUME ["${MULE_HOME}/logs", "${MULE_HOME}/conf", "${MULE_HOME}/apps", "${MULE_HOME}/domains", "${MULE_HOME}/patches", "${MULE_HOME}/.mule"]
