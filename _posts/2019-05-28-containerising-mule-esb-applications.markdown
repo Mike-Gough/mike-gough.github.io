@@ -58,7 +58,7 @@ Hello from Mule 4.2.0
 ```
 
 ## Conclusion
-We have previously walked through how to containerise the Mule ESB and now we've demonstrated how easy it is to run Mule applications inside Docker containers. For those who prefer not to adventure downt the path of containerising the Mule ESB themselves, they can still containerise a Mule application using the mikeyryan/mule image to easily get up and running.
+We have previously walked through how to containerise the Mule ESB and now we've demonstrated how easy it is to run Mule applications inside Docker containers. For those who prefer not to adventure down the path of containerising the Mule ESB themselves, they can still containerise a Mule application using the mikeyryan/mule image to easily get up and running.
 
 ## References
 - [Containerising Mule Enterprise Service Bus (ESB) Enterprise Edition][1]
