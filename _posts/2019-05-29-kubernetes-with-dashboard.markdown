@@ -17,7 +17,7 @@ To keep things simple, we will assume you have access to a bash Command Line Int
 
 ## What is Kubernetes
 
-Kubernetes (K8s) is a portable open source platform for automating the deployment, scaling and management of containerised applications. The name Kubernetes originates from the Greek language, meaning helmsman or pilot and is the root of the words governor and cybernetic. It emerged from the need for declarative configuration for the orchestration of containers, which had just be popularised by Docker. Although Docker provided a simple way to package, distributed and deploy applications, its focus on single machine left a gap for managing it at enterprise or cloud scales.
+Kubernetes (K8s) is a portable open source platform for automating the deployment, scaling and management of containerised applications. The name Kubernetes originates from the Greek language, meaning helmsman or pilot and is the root of the words governor and cybernetic. It emerged from the need for declarative configuration for the orchestration of containers, which had just been popularised by Docker. Although Docker provided a simple way to package, distributed and deploy applications, its focus on single machine left a gap for management at enterprise or cloud scales.
 
 K8s can be thought of as:
 * a container platform;
@@ -79,7 +79,7 @@ Server Version: version.Info{Major:"1", Minor:"10", GitVersion:"v1.10.11", GitCo
 This will have resulted in Docker Desktop setting up a single node Kubernetes cluster on your local machine.
 
 ## Installing the Kubernetes Dashboard
-Dashboard is an official web-based user interface for Kubernetes. It can be used as an alternative to the CLI for those that prefer to work with a Graphical User Interface (GUI).   At a high level, it features the ability to deploy, troubleshoot and manage resources for Kubernetes clusters. In particular, it can be used to get an overview of running applications and to perform common tasks such as scaling a Deployment, initiate a rolling update, restart a pod or deploy new applications.
+Dashboard is an official web-based user interface for Kubernetes. It can be used as an alternative to the CLI for those that prefer to work with a Graphical User Interface (GUI).   At a high level, it features the ability to deploy, troubleshoot and manage resources for Kubernetes clusters. In particular, it can be used to get an overview of running applications and to perform common tasks such as scaling a deployment, initiate a rolling update, restarting a pod or deploying new applications.
 
 Although the Dashboard is the official GUI for Kubernetes, it is not deployed by default. To deploy it to your single node Kubernetes cluster, run the following command:
 ```

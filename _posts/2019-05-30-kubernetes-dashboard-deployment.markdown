@@ -46,7 +46,7 @@ And click the circled icon to inspect the logs for the running mule-4-hello-worl
 ![Kubernetes pods screen with the logs for a mule pod](/assets/images/posts/kubernetes-pods-log.jpg)
 
 ## Testing the application
-Now that we have verified that the application has been deployed successfully, we are ready to test it. The containerised mule-4-hello-world application exposes an API endpoint on port 8081. When deploying the example using Kubernetes we chose to leave the port the same, but make it externally accessible. As such the application can be accessed by navigating to [http://localhost:8081/api/hello-world](http://localhost:8081/api/hello-world) in your browser. When accessed, your browser should show:
+Now that we have verified that the application has been deployed successfully, we are ready to test it. The containerised ```mule-4-hello-world``` application exposes an API endpoint on port 8081. When deploying the example using Kubernetes we chose to leave the port the same, but make it externally accessible. As such the application can be accessed by navigating to [http://localhost:8081/api/hello-world](http://localhost:8081/api/hello-world) in your browser. When accessed, your browser should show:
 ```
 Hello from Mule 4.2.0
 ```

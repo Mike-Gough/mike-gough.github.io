@@ -17,7 +17,7 @@ To keep things brief, we will assume you already have JDK 8, Maven 3 and Docker 
 
 ![MuleSoft logo](/assets/images/posts/mulesoft-logo.svg)
 
-I have created a simple Hello World application inside Mule 4 which can be used for this walkthrough. It has a single HTTP listener flow that listens on ```http://localhost:8081/api/hello-world``` and can be found on  [GitHub](https://github.com/Mike-Gough/mule-4-hello-world). The GitHub repository contains an example for both the community edition and enterprise edition of Mule. You can download and use either example, or if you prefer, your own application, however, if you choose to use the enterprise edition inside Docker, you may need to install a licence file.
+I have created a simple Hello World application inside Mule 4 which can be used for this walkthrough. It has a single HTTP listener flow that listens on ```http://localhost:8081/api/hello-world``` and can be found on  [GitHub](https://github.com/Mike-Gough/mule-4-hello-world). The GitHub repository contains an example for both the community edition and enterprise edition of Mule. You can download and use either example, or if you prefer, your own application. However, if you choose to use the enterprise edition inside Docker you may need to install a licence file.
 
 ## Building the application
 To build the application, open your Command Line Interface (CLI) of choice, navigate to the application directory and run:
@@ -27,7 +27,7 @@ mvn clean package
 This will cause Maven to create a ```target``` folder and package the application into a jar file inside of it. We will be using this jar file inside of our Docker image.
 
 ## Creating a Docker image for the Mule application
-To begin with, we will need to create file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To containerise the example Mule application, our Dockerfile will need to have the following contents for a community edition application:
+To begin with, we will need to create a new file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To containerise the example Mule application, our Dockerfile will need to have the following contents for a community edition application:
 ```
 # The first instruction in a Dockerfile must be FROM, which selects a base image. We are using the image I published from a previous post about containerising the Mule ESB. Change this line to your own repository if you have created your own image.
 FROM mikeyryan/mule:4.2.0-ce
@@ -57,13 +57,13 @@ docker run --rm -it --name mule-4-hello-world -p 8081:8081 mule-4-hello-world
 ```
 This will start a Docker container which will run in the foreground. The Docker image exposes port 8081 and binds it to the same port on localhost.
 
-Once application is running, it can be accessed by navigating to ```http://localhost:8081/api/hello-world``` in your browser. When accessed, your browser should show:
+Once the application is running, it can be accessed by navigating to [http://localhost:8081/api/hello-world](http://localhost:8081/api/hello-world) in your browser. When accessed, your browser should show:
 ```
 Hello from Mule 4.2.0
 ```
 
 ## Summary
-We have previously walked through how to containerise the Mule ESB and now we've demonstrated how easy it is to run Mule applications inside Docker containers. For those who prefer not to adventure down the path of containerising the Mule ESB themselves, they can still containerise a Mule application using the mikeyryan/mule image to easily get up and running.
+We have previously walked through how to containerise the Mule ESB and now we've demonstrated how easy it is to run Mule applications inside Docker containers. For those who prefer not to venture down the path of containerising the Mule ESB themselves, they can still containerise a Mule application using the mikeyryan/mule image to easily get up and running.
 
 ## References
 - [Containerising Mule Enterprise Service Bus (ESB) Enterprise Edition][1]
