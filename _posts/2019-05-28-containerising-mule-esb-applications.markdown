@@ -32,9 +32,14 @@ To begin with, we will need to create file called ```Dockerfile``` in our workin
 # The first instruction in a Dockerfile must be FROM, which selects a base image. We are using the image I published from a previous post about containerising the Mule ESB. Change this line to your own repository if you have created your own image.
 FROM mikeyryan/mule:4.2.0-ce
 
+# Copy the jar that was generated during the package maven phase and place it in the apps folder
 COPY ./target/mule-4-hello-world*.jar /opt/mule/apps/
 
+# Start the mule runtime
 CMD ["/opt/mule/bin/mule"]
+
+# HTTP listener default port
+EXPOSE 8081
 ```
 
 If you are containerising an enterprise edition application, you will need to replace ```-ce``` with ```-ee``` in the line that begins with FROM. For applications other than the provided example from GitHub, you will need to modify the name of the JAR inside the COPY command to match the name of your project.
