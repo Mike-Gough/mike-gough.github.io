@@ -18,7 +18,7 @@ To keep things simple, we will assume you have already setup a local single node
 
 Begin by using your browser to navigate to the Kubernetes dashboard running on your local machine [http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/). Use the menu to the left of the page to open the _Deployments_ screen:
 
-![Deployments screen](assets/images/posts/kubernetes-deployments.jpg)
+![Deployments screen](/assets/images/posts/kubernetes-deployments.jpg)
 
 Then click the _Create_ button in the top right hand corner. In the Wizard that appears, select the _Create an App_ tab and provide the following values:
 * app name: mule-4-hello-world
