@@ -23,7 +23,7 @@ With Docker we can easily deploy containers with the Mule ESB and a single appli
 
 ![Docker logo](/assets/images/posts/docker-logo.svg)
 
-To begin with, we will need to create file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To run the Mule ESB, our Dockerfile will need to contain the following:
+To begin with, we will need to create a new file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. To run the Mule ESB, our Dockerfile will need to contain the following:
 ```
 # The first instruction in a Dockerfile must be FROM, which selects a base image. Since it's recommended to use official Docker images, we will use the official image for openjdk.
 FROM openjdk:8-jdk
@@ -74,7 +74,7 @@ The above Docker file will create an image based on the official openjdk Docker 
 ```
 docker build --build-arg MULE_VERSION=4.2.0 -t mule:ee-4-2-0 .
 ```
-  Unfortunaty at this time it newer versions of Mule (4 and above) are aware of being containerised and force you to provide a licence instead of creating a 30 day trial license. You can get around this by obtaining a licence and mounting it inside the container or by using an older version of Mule.
+  With newer versions of Mule (4 and above) you may need to provide a licence instead of using a 30 day trial.
 
 Thats it! In a future post we will look at how we can use this image as the base for another image which contains a Mule application.
 
