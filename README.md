@@ -10,7 +10,7 @@ You will need the following things properly installed on your computer.
 * [Jekyll](https://jekyllrb.com)
 
 ## Local development
-
+### With Jekell
 To build the site and start local web server, run the following command:
 ```
 jekyll serve
@@ -19,6 +19,11 @@ jekyll serve
 To build the site and publish it into the `_site` folder, run the following command:
 ```
 jekyll build
+```
+## With Docker
+To build the site and publish it into the `_site` folder, run the following command:
+```
+docker run --rm -v /${PWD}:/srv/jekyll jekyll/jekyll jekyll build
 ```
 
 ## Further Reading / Useful Links
