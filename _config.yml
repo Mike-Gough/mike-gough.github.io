@@ -9,10 +9,12 @@ markdown: kramdown
 highlighter: rouge
 logo: false
 paginate: 15
-baseurl: /
 domain_name: 'https://mike-gough.github.io'
 google_analytics: 'UA-141675879-1'
 gems: [jekyll-paginate]
+
+# Navigation
+base_url: '/'
 permalink: /blog/posts/:year/:month/:day/:title:output_ext
 
 # Details for the RSS feed generator
