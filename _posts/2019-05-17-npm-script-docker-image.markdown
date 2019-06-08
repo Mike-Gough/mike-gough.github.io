@@ -2,7 +2,6 @@
 layout: post
 title:  "Containerising a Node.js script"
 date:   2019-05-17 19:11:00
-permalink: /posts/docker/npm/create-image/
 categories:
   - Docker
   - NPM

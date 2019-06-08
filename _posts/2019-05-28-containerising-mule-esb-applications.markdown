@@ -2,7 +2,6 @@
 layout: post
 title:  Containerising a Mule 4 application
 date:   2019-05-28 13:29:00
-permalink: /posts/docker/mule/4/hello-world-application
 categories:
   - Docker
   - Mule

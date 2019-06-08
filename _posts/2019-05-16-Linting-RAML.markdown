@@ -2,7 +2,6 @@
 layout: post
 title:  "Linting RESTful API Modelling Language (RAML)"
 date:   2019-05-16 21:41:00
-permalink: /posts/linting/raml-enforcer/
 categories:
   - Linting
   - API

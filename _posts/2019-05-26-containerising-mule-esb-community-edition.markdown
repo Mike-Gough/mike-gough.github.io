@@ -2,7 +2,6 @@
 layout: post
 title:  Containerising Mule Enterprise Service Bus (ESB) Community Edition
 date:   2019-05-26 08:35:00
-permalink: /posts/docker/mule/esb/community-edition
 categories:
   - Docker
   - Mule

@@ -2,7 +2,6 @@
 layout: post
 title:  Using Kubernetes dashboard to deploy a Mule 4 application
 date:   2019-05-30 06:10:00
-permalink: /posts/docker/mule/kubectl-deploy
 categories:
   - Docker
   - Kubernetes

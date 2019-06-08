@@ -10,10 +10,9 @@ baseurl: /
 domain_name: 'https://mike-gough.github.io'
 google_analytics: 'UA-141675879-1'
 gems: [jekyll-paginate]
+permalink: /blog/posts/:year/:month/:day/:title:output_ext
 
 # Details for the RSS feed generator
 url:                'https://mike-gough.github.io/'
 author:             'Mike Gough'
 author_description: 'Integration Architect'
-
-baseurl:            'https://mike-gough.github.io/'

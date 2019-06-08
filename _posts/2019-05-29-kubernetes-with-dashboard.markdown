@@ -2,7 +2,6 @@
 layout: post
 title:  Setup Kubernetes and its dashboard on Docker Desktop
 date:   2019-05-29 07:14:00
-permalink: /posts/docker/kubernetes-with-dashboard
 categories:
   - Docker
   - Kubernetes
