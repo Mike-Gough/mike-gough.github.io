@@ -5,8 +5,6 @@ date:   2019-06-08 14:20:00
 tags:
   - Windows
   - Linux
-  - Continuous Integration
-  - Continuous Delivery
 ---
 Windows Subsystem for Linux (WSL) lets developers run GNU/Linux code side-by-side with Windows processes. In this post we will walk through how you can setup WSL.
 <!--more-->
