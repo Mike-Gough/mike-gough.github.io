@@ -31,11 +31,11 @@ It's ability to orchestrate computing, networking, and storage infrastructure on
 If you want to get started with Kubernetes on a Windows 10 or Mac OS operating system, Docker Desktop is the quickest way. Docker Desktop comes in two editions, a free community edition and a paid enterprise edition. It includes everything you need to build, test and ship containerised applications right from your machine and for this walkthrough, either edition will be suitable. To obtain a copy, head to the [Docker website](https://www.docker.com/products/docker-desktop), and follow the instructions to download and install it.
 
 Once installed, you can verify that Docker is up and running by opening your CLI of choice and executing the following command:
-```
+```bash
 docker version
 ```
 If successful, you should seen some output printed to the screen similar to this:
-```
+```bash
 Client: Docker Engine - Community
  Version:           18.09.2
  API version:       1.39
@@ -66,7 +66,7 @@ Server: Docker Engine - Community
 Once Docker Desktop is installed, you should see a whale icon in the taskbar for Windows or the menu bar for Mac. Clicking the icon should reveal a content menu with an option for _Settings_ or _Preferences_ depending on your Operating System, select it. Once open, navigate to the Kubernetes tab. Kubernetes is not installed by Docker Desktop by default, you'll need to check the _Enable Kubernetes_ checkbox and wait for it to be downloaded and installed before proceeding. The amount of time this will take largely depends on your internet speed, once the window shows _Kubernetes is running*, you should be ready to continue.
 
 Once enabled, you can verify that Kubernetes is available by opening your CLI of choice and executing the following command:
-```
+```bash
 kubectl version
 ```
 If successful, you should seen some output printed to the screen similar to this:
@@ -85,14 +85,14 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/a
 ```
 
 To make the deployed Dashboard accessible, use the kubectl command-line tool by running the following command:
-```
+```bash
 kubectl proxy
 ```
 You will then be able to navigate to [http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/) in your browser to access the dashboard.
 
 ## Setting up a Dashboard user
 Navigating to the Dashboard will have presented a screen asking for a Kubeconfig file or an access token. To use the Dashboard, you'll need to create a user and obtain a bearer token for them. Begin by creating a file called ```dashboard-admin-user.yaml``` with the following contents:
-```
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -100,11 +100,11 @@ metadata:
   namespace: kube-system
 ```
 Then navigate to the location you saved the file in your CLI and use the following command to create the admin user:
-```
+```bash
 kubectl apply -f dashboard-admin-user.yaml
 ```
 Finally, to obtain a bearer token, you'll need to run the following command:
-```
+```bash
 kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 ```
 

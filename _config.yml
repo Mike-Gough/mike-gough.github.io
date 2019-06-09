@@ -6,7 +6,7 @@ meta_description: ''
 favicon: ''
 baseurl:
 production_url: http://mike.gough.me/
-disqus: 'mike-gough-me'
+# disqus: 'mike-gough-me'
 # mailchimp_url: '//justgoodthemes.us3.list-manage.com/subscribe/post?u=78f1bab16028354caeb23aecd&amp;id=4a7330d117'
 cover_image: 
 # Add your GA Tracking Id
@@ -39,7 +39,7 @@ github: 'Mike-Gough'
 
 # Navigation
 navigation:
-  - text: About me
+  - text: About
     url: /about
   - text: RSS
     url: /feed.xml

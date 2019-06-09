@@ -105,7 +105,7 @@ pre {
     margin: 0 0 1.875em;
     overflow: auto;
     padding: 1.875em;
-    white-space: pre;
+    white-space: pre-wrap;
 }
 
 pre code {
@@ -658,7 +658,7 @@ pre[class*="language-"] {
     text-shadow: 0 1px rgba(0, 0, 0, 0.3);
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
     text-align: left;
-    white-space: pre;
+    white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
@@ -689,7 +689,7 @@ pre[class*="language-"] {
 :not(pre)>code[class*="language-"] {
     padding: 1px 3px;
     border-radius: 3px;
-    white-space: normal;
+    white-space: pre-wrap;
 }
 
 .token.comment,
