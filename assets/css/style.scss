@@ -162,13 +162,20 @@
 }
 
 .post-header {
-  margin-bottom: 1.66667em;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.post-header .post-title {
+  font-size: 1.5em
 }
 
 .post-title {
   color: $gray-darkest;
   font-size: 2.22222rem;
-  margin: 0 0 0.75em;
+  margin: 0;
+  padding-bottom: 0;
 }
 
 .post-title a {
@@ -304,7 +311,7 @@
 
 .post-feed .post-title {
   font-size: 1.55556rem;
-  margin-bottom: 0.53571em;
+  margin-bottom: 0;
 }
 
 .post-feed .post-meta {

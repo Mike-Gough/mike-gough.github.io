@@ -1,13 +1,13 @@
 <article class="post">
     <header class="post-header">
-        <div class="post-meta">
-            <time class="published" datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-        </div><!-- .post-meta -->
-        <h2 class="post-title">
+        <h1 class="post-title">
             <a href="{{ post.url | absolute_url }}" rel="bookmark">{{ post.title }}</a>
-        </h2>
-    </header><!-- .post-header -->
-    <div class="post-meta">    
+        </h1>
+        <div class="post-meta">
+            <time class="published" datetime="{{ post.date | html5date }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+        </div>
+    </header>
+    <div>    
         {% if post.tags.size > 0 %} {% for tag in post.tags %} {% if forloop.index == post.tags.size %}
         <a href='{{ site.baseurl }}/tag/{{ tag | downcase | replace: ' ', '- ' }}/'>{{ tag | camelcase }}</a>
         {% else %}
@@ -25,13 +25,11 @@
             alt="{{ post.title }}">
     </a>
     {% endif %}
-    <div class="post-content">
-        {% if post.content contains '<!--more-->' %} {{ post.content | split:'<!--more-->' | first }}
-        <p class="read-more">
-            <a class="button" href="{{ site.baseurl }}{{ post.url }}" class="more-link">Continue Reading</a>
-        </p>
-        {% else %}
-            <p>{{ post.content }}</p>
-        {% endif %}
-    </div><!-- .post-content -->
+    {% if post.content contains '<!--more-->' %} {{ post.content | split:'<!--more-->' | first }}
+    <p class="read-more">
+        <a class="button" href="{{ site.baseurl }}{{ post.url }}" class="more-link">Continue Reading</a>
+    </p>
+    {% else %}
+        {{ post.content }}
+    {% endif %}
 </article><!-- .post -->
