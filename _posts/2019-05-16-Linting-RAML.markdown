@@ -2,16 +2,14 @@
 layout: post
 title:  "Linting RESTful API Modelling Language (RAML)"
 date:   2019-05-16 21:41:00
-categories:
+tags:
   - Linting
-  - API
   - Continuous Integration
   - Continuous Delivery
-  - RAML Enforcer
+  - RAML
 ---
-
 Within a Continuous Integration (CI) and Continuous Delivery (CD) environment, the first principles is that no code is delivered without automated tests. Today we are going to look at this principle and how we can easily identify and correct common  coding mistakes when designing Service Contracts for Application Programming Interfaces (APIs). Specifically, we will explore how  *Linting* can be used for this purpose.
-
+<!--more-->
 ## What is Linting
 *Linting* is the process of using a tool to examine source code for programatic errors, bugs, stylistic errors or suspicious patterns. A *Linter* or *Lint* is a piece of software that supports verifying code quality through *Linting*. Most Linters are highly configurable and extensible, allowing developers to select from a set of prepackaged rules to enforce a particular coding standard, or to invent their own rules as needed.
 

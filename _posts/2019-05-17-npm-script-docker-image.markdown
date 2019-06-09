@@ -2,16 +2,15 @@
 layout: post
 title:  "Containerising a Node.js script"
 date:   2019-05-17 19:11:00
-categories:
+tags:
   - Docker
   - NPM
   - Continuous Integration
   - Continuous Delivery
-  - RAML Enforcer
+  - RAML
 ---
-
 When working inside a Continuous Integration (CI) and Continuous Delivery (CD) environment, portability of code is often a core concern that needs to be addressed. Developers write code locally and need some level of assurance that it will run consistently regardless of where it is deployed. This is an area where Docker shines. The goal of this post is to run a script, written with Node.js, inside a docker container. It assumes that you have an existing script which requires access to files on the local file system as well as an account on Docker Hub.
-
+<!--more-->
 ## Docker concepts
 To begin with, it's important to understand what Docker is and the principles behind it. Docker is a platform for *developers* and *system administrators* to develop, deploy and run applications with containers. The use of containers to deploy applications is called containerization, which is popular in CI and CD workflows because containers are<sup>[1]</sup>:
 * Flexible - Any application can be containerized

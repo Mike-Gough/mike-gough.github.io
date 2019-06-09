@@ -1,21 +1,67 @@
-# Site details
-name: Absent-minded architecture
-description: Lessons learned in integration
-meta_description: "Architecture and integration blog"
-author:             'Mike Gough'
-author_description: 'Integration Architect'
+# Site setings
+name: 'Absent-minded architecture'
+description: 'This space is used to share my work for the benefit of other architects, software developers and technologists. Broadly, it covers lessons learned in designing, developing and integrating software.'
+meta_description: ''
+# logo: '/assets/images/profile.png'
+favicon: ''
+baseurl:
+production_url: http://mike.gough.me/
+disqus: 'mike-gough-me'
+# mailchimp_url: '//justgoodthemes.us3.list-manage.com/subscribe/post?u=78f1bab16028354caeb23aecd&amp;id=4a7330d117'
+cover_image: 
+# Add your GA Tracking Id
+ga_analytics: UA-141675879-1
 
-markdown: kramdown
-highlighter: rouge
-logo: false
-paginate: 15
-domain_name: 'https://mike-gough.github.io'
-google_analytics: 'UA-141675879-1'
-gems: [jekyll-paginate]
+# Author
+author:
+  name: 'Mike Gough'
+  image: 'profile.png'
+  greetings: ''
+  description: "My name is Mike Gough. I'm a Integration Architect based out of Australia. I design and develop integrated software solutions."
+  bio: 'Mike is an Integration Architect based out of Australia.'
+
+# Contact form setings
+# email: no-reply@gmail.com
+# contact_page_description: # "Horace theme comes with a contact form built-in. You can use this form with Formspree service and get up to 50 submissions for free. Also, you can easily switch to another service if you want."
+# thankyou_page_description: "Your message has been successfully sent. I'll get back to you as soon as possible!"
+
+# Social links
+# twitter: ''
+# facebook: ''
+github: 'Mike-Gough'
+# codepen: ''
+# dribbble: ''
+# medium: ''
+# instagram: ''
+# pinterest: ''
+# linkedin: ''
+# producthunt: ''
 
 # Navigation
-base_url: '/'
-permalink: /blog/posts/:year/:month/:day/:title:output_ext
+navigation:
+  - text: About me
+    url: /about
+  - text: RSS
+    url: /feed.xml
 
-# Details for the RSS feed generator
-url:                'https://mike-gough.github.io/'
+# Required Plugins
+plugins_dir:
+  - jekyll-paginate
+  - jekyll-tagsgenerator
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# Pagination
+paginate: 5
+paginate_path: /page/:num/
+
+# Permalinks
+permalink: /posts/:title:output_ext
+
+# Other
+markdown: kramdown
+
+# Sass
+sass:
+  sass_dir: _sass
+  style: compressed

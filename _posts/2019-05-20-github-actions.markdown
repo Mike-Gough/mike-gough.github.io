@@ -2,17 +2,15 @@
 layout: post
 title:  Continuous Deployment with GitHub Actions and Docker Hub
 date:   2019-05-20 16:25:00
-categories:
+tags:
   - Docker
-  - Git
-  - Docker Hub
   - GitHub
   - Continuous Integration
   - Continuous Deployment
-  - RAML Enforcer
+  - RAML
 ---
 In this post we will assume that you practice Continuous Integration (CI) and have a product which is packaged as a Docker image. As your next step you are looking to implement Continuous Deployment (CD) from scratch or move to it from a Continuous Delivery workflow. Our aim will be to build and push a docker image to Docker Hub using GitHub actions.
-
+<!--more-->
 ## Principles
 Before we dive into how we can achieve this goal, it’s important to understand the principles behind what we are trying to achieve and why. If you’re already familiar with Continuous Delivery and Continuous Deployment as well as the distinction between the two, feel free to skip this next part.
 

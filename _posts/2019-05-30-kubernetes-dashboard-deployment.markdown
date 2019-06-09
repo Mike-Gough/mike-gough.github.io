@@ -2,12 +2,12 @@
 layout: post
 title:  Using Kubernetes dashboard to deploy a Mule 4 application
 date:   2019-05-30 06:10:00
-categories:
+tags:
   - Docker
   - Kubernetes
 ---
 Once you have a running Kubernetes cluster, you can deploy your containerised applications on top of it. In this post we will walk through how you can deploy a containerised mule application using the Kubernetes dashboard.
-
+<!--more-->
 ## Prerequisites
 To keep things simple, we will assume you have already setup a local single node Kubernetes cluster and deployed its dashboard.
 

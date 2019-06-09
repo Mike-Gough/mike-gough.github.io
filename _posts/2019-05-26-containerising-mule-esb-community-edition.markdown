@@ -2,14 +2,12 @@
 layout: post
 title:  Containerising Mule Enterprise Service Bus (ESB) Community Edition
 date:   2019-05-26 08:35:00
-categories:
+tags:
   - Docker
-  - Mule
   - Mule ESB
 ---
-
 In this post we will assume that you have Docker and would like to create an image that contains the Community Edition of the Mule ESB. If you're looking for a Mule Docker image you can use without making your own, then you can check out [mikeyryan/mule](https://hub.docker.com/r/mikeyryan/mule) on Docker Hub.
-
+<!--more-->
 ## Why Containerise the Mule ESB?
 
 ![MuleSoft logo](/assets/images/posts/mulesoft-logo.svg)

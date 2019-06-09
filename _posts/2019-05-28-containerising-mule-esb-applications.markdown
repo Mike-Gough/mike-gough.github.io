@@ -1,14 +1,14 @@
 ---
 layout: post
+featured: true
 title:  Containerising a Mule 4 application
 date:   2019-05-28 13:29:00
-categories:
+tags:
   - Docker
-  - Mule
   - Mule ESB
 ---
 In this post we will walk through how you can run a simple Mule 4 application inside of a Docker container.
-
+<!--more-->
 ## Prerequisites
 To keep things brief, we will assume you already have JDK 8, Maven 3 and Docker installed and setup correctly. Your docker host needs to have at least 1GB of available RAM to run Mule ESB Server Runtime. You can refer to the [Mule ESB hardware requirements](https://docs.mulesoft.com/mule-runtime/4.2/hardware-and-software-requirements) documentation for additional information.
 

@@ -2,13 +2,12 @@
 layout: post
 title:  Setup Kubernetes and its dashboard on Docker Desktop
 date:   2019-05-29 07:14:00
-categories:
+tags:
   - Docker
   - Kubernetes
-  - K8s
 ---
 In this post we will walk through how you can install and run a single node Kubernetes instance using Docker Desktop Community Edition for Windows or Mac.
-
+<!--more-->
 ## Prerequisites
 To keep things simple, we will assume you have access to a bash Command Line Interface (CLI) on your local machine. Mac users should have access to the _Terminal_ application while Windows users will need to install one of several options, including but not limited to:
 * [Windows subsystem for Linux](https://docs.microsoft.com/en-us/windows/wsl/install-win10)

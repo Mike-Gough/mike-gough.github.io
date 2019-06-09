@@ -2,18 +2,15 @@
 layout: post
 title:  "Git pre-commit hook for Linting RESTful API Modelling Language (RAML)"
 date:   2019-05-18 09:45:00
-categories:
+tags:
   - Linting
   - Git
-  - Hooks
-  - API
   - Continuous Integration
   - Continuous Delivery
-  - RAML Enforcer
+  - RAML
 ---
-
 Continuous Integration (CI) is a practice that requires developers to push code into a shared repository several times a day. When pushing our code to a shared repository, we should strive to ensure that our code is syntactically correct and builds so that other developers can grab the latest copy and begin iterating upon it easily. Today we are going to look at this principle and how we can easily identify and correct common coding mistakes when designing Service Contracts for Application Programming Interfaces (APIs). Specifically, we will explore how we can use Git hooks as a mechanism for ensuring a RAML Service Contract is valid using a *Linter* called *RAML Enforcer*.
-
+<!--more-->
 ## What is RAML Enforcer?
 *RAML Enforcer* is a Linter which can be used to examine source code for programatic errors, bugs, stylistic errors or suspicious patterns. In a CI toolchain, *Linting* is performed very early in the workflow, usually prior to running unit tests or integrating code into a shared repository. *RAML Enforcer* is configurable through command line arguments and provides developers with the option to select from a set of prepackaged rules to enforce coding standards. In this case, we are interested in automatically checking our Service Contract for programatic errors and bugs prior to committing any changes.
 
