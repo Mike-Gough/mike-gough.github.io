@@ -965,8 +965,8 @@
   .post-content img[src$='#wide'] {
     margin-left: -180px;
     margin-right: -180px;
-    max-width: none;
-    width: 1080px;
+    max-width: 720px;
+    width: 720px;
   }
 
   .outer {
@@ -992,7 +992,6 @@
 
   .post-feed .post-header,
   .post-feed .post-content {
-    float: right;
     margin-right: 180px;
     width: 720px;
   }
