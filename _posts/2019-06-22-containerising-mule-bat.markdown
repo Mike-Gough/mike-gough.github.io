@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Containerising MuleSoft's Blackbox Automated Testing (BAT) tool
+title:  Containerising MuleSoft's Blackbox Automated Testing (BAT) CLI tool
 date:   2019-06-22 10:19:00
 tags:
   - Docker
@@ -8,11 +8,15 @@ tags:
 ---
 In this post we will assume that you have Docker and would like to create an image that contains the Blackbox Automated testing (BAT) application published by Mulesoft. If you're looking for a Mule Docker image you can use without making your own, then you can check out [mikeyryan/mule-blackbox-automated-testing](https://hub.docker.com/r/mikeyryan/mule-blackbox-automated-testing) on Docker Hub.
 <!--more-->
-## Why Containerise BAT?
+## What is BAT?
 
 ![MuleSoft logo](/assets/images/posts/mulesoft-logo.svg)
 
-BAT will run perfectly fine anywhere that you can install Java. However, you may find yourself in need of a solution that's more scalable than installing it on a standalone machine or needing to run multiple versions of BAT at the same time. A typical scenario for using Mule BAT is to install it on a standalone server and use it to monitor the availablilty of your APIs. Another, is to use it as part of your Continuous Deployment (CD) process to test that your APIs work as expected after being deployed. With Docker we can easily package BAT in a container which is useful for portability, as Docker will help ue sneusre that wour tests will run the same locally as they will when deployed to a server or used as part of a CD process.
+The BAT CLI is an API Functional Monitoring tool produced by MuleSoft for assuring the quality and reliablility of APIs. It provides a convenient method for those working in the MuleSoft technology stack to implement Black-box testing and Runtime monitoring. Using dataweave, it is possible to develop tests that validate the behavior of APIs against live upstream systems, based on inputs and outputs. Additionally, it has a monitoring capability that allows you to verify that deployed APIs are operating as expected and output test results in a variety of formats as a once off operation or on a schedule.
+
+## Why Containerise BAT?
+
+BAT will run perfectly fine anywhere that you can install Java. However, you may find yourself in need of a solution that's more scalable than installing it on a standalone machine or needing to run multiple versions it at the same time. In fact, a typical scenario for using BAT is as part of a Continuous Integration (CI) and Continuous Deployment (CD) process to test your API before pushing code into a shared repository and/or verifying that a deployment to production has worked correctly. With Docker we can easily package BAT in a container which is useful for portability, as Docker will help ue sneusre that our tests will run the same locally as they will when deployed to a server or used as part of a CI/CD process.
 
 ## Creating a Docker image
 
