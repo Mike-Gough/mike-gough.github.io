@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  Containerising MuleSoft's Blackbox Automated Testing (BAT)
+title:  Containerising MuleSoft's Blackbox Automated Testing (BAT) tool
 date:   2019-06-22 10:19:00
 tags:
   - Docker
