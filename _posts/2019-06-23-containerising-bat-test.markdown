@@ -20,7 +20,7 @@ The BAT CLI is an API Functional Monitoring tool produced by MuleSoft for assuri
 
 ## Test Writing Language
 
-To begin with, we will need to create file called ```tests/example.dwl``` in our working directory. As the ```dwl``` file extension indicates, our test will be written using the Dataweave language. Dataweave is an expression language introduced by MuleSoft for transforming data. Within Dataweave, we will use an embeded Domain Specific Language (DSL) called Behaviour Driven Developmenmt (BDD), which has a similar syntax to other testing frameworks, to define our test. The following example shows a typical API test written using BDD in Dataweave, add the example to the ```tests/example.dwl``` file:
+In this post, we will be writing a test manually and running it as a once off operation with the BAT CLI. To begin with, we will need to create file called ```tests/example.dwl``` in our working directory. As the ```dwl``` file extension indicates, our test will be written using the Dataweave language. Dataweave is an expression language introduced by MuleSoft for transforming data. Within Dataweave, we will use an embeded Domain Specific Language (DSL) called Behaviour Driven Developmenmt (BDD), which has a similar syntax to other testing frameworks, to define our test. The following example shows a typical API test written using BDD in Dataweave, add the example to the ```tests/example.dwl``` file:
 ```
 %dw 2.0 // Dataweave 2.0
 import * from bat::BDD // Behaviour Driven Development (BDD) Domain Spesific Langage (DSL)
