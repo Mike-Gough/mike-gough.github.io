@@ -81,14 +81,14 @@ Dashboard is an official web-based user interface for Kubernetes. It can be used
 
 Although the Dashboard is the official GUI for Kubernetes, it is not deployed by default. To deploy it to your single node Kubernetes cluster, run the following command:
 ```
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/aio/deploy/recommended/kubernetes-dashboard.yaml
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 ```
 
 To make the deployed Dashboard accessible, use the kubectl command-line tool by running the following command:
 ```bash
 kubectl proxy
 ```
-You will then be able to navigate to [http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kube-system/services/https:kubernetes-dashboard:/proxy/) in your browser to access the dashboard.
+You will then be able to navigate to [http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/](http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/) in your browser to access the dashboard.
 
 ## Setting up a Dashboard user
 Navigating to the Dashboard will have presented a screen asking for a Kubeconfig file or an access token. To use the Dashboard, you'll need to create a user and obtain a bearer token for them. Begin by creating a file called ```dashboard-admin-user.yaml``` with the following contents:
