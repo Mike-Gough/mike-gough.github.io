@@ -39,7 +39,7 @@ import Swift
 print("Hello, world!")
 ```
 
-This should pring the words "Hello, world!" on the screen when run.
+This should print the words "Hello, world!" on the screen when run.
 
 ### Creating a Swift container
 Next, we will need to create a file called ```Dockerfile``` in our working directory. A Dockerfile has a file format that contains instructions and arguments, which define the contents and startup behaviour of the Docker container. The docker container we will create will run the Swift Compiler ontop of a Linux distribution and allow us to begin programming using Swift even on a Windows machine. To run our simple ```hello world.swift``` file, our Dockerfile will need to contain the following:
@@ -57,25 +57,27 @@ ADD . ./
 ENTRYPOINT ["swift"]
 ```
 
-The above Docker file will create an image based on the official Swift Docker image. When the image is built, it will copy the contents of the local directory into a folder named ```/app``` inside the image allowing us to access and run the file inside the container. To build an image containing our simple ```hello world.swift``` file, we can run the following command:
+The above Docker file will create an image based on the official Swift Docker image. When the image is built, it will copy the contents of the local directory into a folder named ```/app``` inside the image. This allows us to access and run the file inside the container. 
+
+To build an image containing our simple ```hello world.swift``` file, we can run the following command:
 ```
 docker build -t my-swift-image .
 ```
 
-Thats it! We've made a Docker image containing Swift and our ```hello world.swift``` file. You can tell Docker to run our container and execute the ```hello world.swift``` file by using the following command:
+Thats it! We've made a Docker image containing Swift and our ```hello world.swift``` file. To run our Docker container and execute the ```hello world.swift``` file, run the following command:
 ```
 docker run --rm my-swift-image "hello world.swift"
 ```
-You should now see ```Hello, world!``` printed on the terminal... But wait, doesn't that mean each time we make a change to our code we will have to re-build the docker image? While we could certainally do this, it wouldn't be the most efficient method available to us.
+You should now see ```Hello, world!``` printed on the terminal... But wait, doesn't that mean each time we make a change to our code we will have to re-build the docker image? While we certainally could do this, it wouldn't be the most efficient method available to us.
 
 ### Editing Swift code inside of our Docker container on-the-fly
-Instead of re-building our custom Docker image each time we change our code, we can run it and attach the local directory to it. To demonstrate that this is possible, lets begin with making a small change to our ```hello world.swift``` file. Change its contents to so that it will print a different line to the screen:
+Instead of re-building our custom Docker image each time we change our code, we can run it and attach the local directory to it. To demonstrate that this is possible, lets begin with making a small change to our ```hello world.swift``` file. Change its contents to the following so that it will print a different line to the screen:
 ```swift
 import Swift
 print("Hello, cruel world!")
 ```
 
-Using the following command, start a container with our custom image, attach the current directory to the ```/app``` folder and execute the ```hello world.swift``` file we just modified:
+Using the following command to start a container with our custom image, attach the current directory to the ```/app``` folder and execute the ```hello world.swift``` file we just modified:
 ```
 docker run --rm -v $(pwd):/app -it my-swift-image "hello world.swift"
 ```
@@ -86,10 +88,11 @@ Another option would be to use the official Swift image instead of our custom on
 ```
 docker run --rm -v "$(pwd)":/app -it swift
 ```
-This will create a temporary container running Swift in interactive mode, allowing you to execute your Swift code inside a terminal environment by using the command:
+This will create a temporary container running Swift in interactive mode, allowing you to execute Swift commands inside a terminal environment. Lets tell Swift to execute our  ```hello world.swift``` file by using the following command:
 ```
 swift run "/app/hello world.swift"
 ```
+Once again you should see ```Hello, cruel world!``` printed to the terminal.
 
 ## Summary
 Thats it! In this post we have demonstrated how easy it is to run swift code inside a Docker container. In future posts we will look at how we can containerise and run server-side Swift applications.
