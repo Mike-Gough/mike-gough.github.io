@@ -48,5 +48,5 @@ try MikeGoughMe()
         .installPlugin(.minifyCSS()),
         .generateRSSFeed(including: [.articles, .basics, .tips]),
         .generateSiteMap(),
-        .deploy(using: .git("Mike-Gough/test"))
+        .deploy(using: .gitHub("Mike-Gough/mike-gough.github.io", useSSH: false))
     ])

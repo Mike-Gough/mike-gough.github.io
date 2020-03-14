@@ -303,6 +303,25 @@ nav li {
     .browse-all-link {
         display: none;
     }
+
+    .wrapper {
+        padding: 40px 20px;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-gap: 15px;
+    }
+    
+    .compact>.grid,
+    .compact.grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .expanded>.grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
 
 h1,
@@ -606,13 +625,6 @@ footer {
 footer p {
     margin-bottom: 0px;
 }
-
-@media(max-width: 600px) {
-    .wrapper {
-        padding: 40px 20px;
-    }
-}
-
 
 /* Animations */
 
