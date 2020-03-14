@@ -19,8 +19,10 @@ The BAT CLI is an API Functional Monitoring tool produced by MuleSoft for assuri
 In this post, we will be writing a test manually and running it as a once off operation with the BAT CLI. To begin with, we will need to create file called `tests/example.dwl` in our working directory. As the `dwl` file extension indicates, our test will be written using the Dataweave language. Dataweave is an expression language introduced by MuleSoft for transforming data. Within Dataweave, we will use an embeded Domain Specific Language (DSL) called Behaviour Driven Developmenmt (BDD), which has a similar syntax to other testing frameworks, to define our test. The following example shows a typical API test written using BDD in Dataweave, add the example to the `tests/example.dwl` file:
 ```plaintext
 %dw 2.0 // Dataweave 2.0
-import * from bat::BDD // Behaviour Driven Development (BDD) Domain Spesific Langage (DSL)
-import * from bat::Assertions // Common matchers (i.e. mustEqual, mustMatch, every, oneOf, assert, etc.)
+// Behaviour Driven Development (BDD) Domain Spesific Langage (DSL)
+import * from bat::BDD 
+// Common matchers (i.e. mustEqual, mustMatch, every, oneOf, assert, etc.)
+import * from bat::Assertions
 ---
 // Defines a suite of related tests
 suite("Example") in [
@@ -84,7 +86,9 @@ working-directory
 ## Validating a Test Suite
 To validate the files and folders we have created, we can run BAT inside a Docker container and provide some additional command line options. From the base of the working directory, run the following command:
 ```bash
-docker run --init --rm -v "${PWD}":/usr/src/mymaven mikeyryan/mule-blackbox-automated-testing:latest bat.yaml --config=prod --validate
+docker run --init --rm \
+  -v "${PWD}":/usr/src/mymaven mikeyryan/mule-blackbox-automated-testing:latest \
+  bat.yaml --config=prod --validate
 ```
 
   `bat.yaml` tells BAT the directory the location of the manifest file.
@@ -93,7 +97,9 @@ docker run --init --rm -v "${PWD}":/usr/src/mymaven mikeyryan/mule-blackbox-auto
 ## Running a Test Suite
 To execute the tests defined in the manifest file, we can run BAT inside a Docker container using the following command:
 ```bash
-docker run --init --rm -v "${PWD}":/usr/src/mymaven mikeyryan/mule-blackbox-automated-testing:latest bat.yaml --config=prod
+docker run --init --rm \
+  -v "${PWD}":/usr/src/mymaven mikeyryan/mule-blackbox-automated-testing:latest \
+  bat.yaml --config=prod
 ```
 
 The output of the command should match the below:

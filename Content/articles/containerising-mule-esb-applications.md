@@ -41,14 +41,18 @@ If you are containerising an enterprise edition application, you will need to re
 
 The above Dockerfile builds an image based on a pre-existing Mule ESB image and adds the application to it. Run it now by executing the following command:
 ```bash
-docker build --tag mule-4-hello-world .
+docker build \
+  --tag mule-4-hello-world .
 ```
 This command creates a Docker image called `mule-4-hello-world` which we can use to run our application.
 
 ## Running the application using Docker
 To start a Docker container based on this image, execute the following command:
 ```bash
-docker run --rm -it --name mule-4-hello-world -p 8081:8081 mule-4-hello-world
+docker run --rm -it \
+  --name mule-4-hello-world \
+  -p 8081:8081 \
+  mule-4-hello-world
 ```
 This will start a Docker container which will run in the foreground. The Docker image exposes port 8081 and binds it to the same port on localhost.
 

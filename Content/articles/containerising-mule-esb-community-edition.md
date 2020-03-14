@@ -62,7 +62,9 @@ EXPOSE 8081 5000 1098 7777 9997
 
 The above Docker file will create an image based on the official openjdk Docker image. It downloads and installs a specific version of the Mule ESB which can be passed as an optional argument when running the build process. To create the Docker image with version 4.2.0 of the Mule ESB, run the following command:
 ```bash
-docker build --build-arg MULE_VERSION=4.2.0 -t mule:ce-4-2-0 .
+docker build \
+  --build-arg MULE_VERSION=4.2.0 \
+  -t mule:ce-4-2-0 .
 ```
 
 Thats it! In a future post we will look at how we can use this image as the base for another image which contains a Mule application.

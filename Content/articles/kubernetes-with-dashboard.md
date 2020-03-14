@@ -80,7 +80,8 @@ Dashboard is an official web-based user interface for Kubernetes. It can be used
 
 Although the Dashboard is the official GUI for Kubernetes, it is not deployed by default. To deploy it to your single node Kubernetes cluster, run the following command:
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
+kubectl apply \
+  -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0-beta8/aio/deploy/recommended.yaml
 ```
 
 To make the deployed Dashboard accessible, use the kubectl command-line tool by running the following command:
@@ -100,11 +101,13 @@ metadata:
 ```
 Then navigate to the location you saved the file in your CLI and use the following command to create the admin user:
 ```bash
-kubectl apply -f dashboard-admin-user.yaml
+kubectl apply \
+  -f dashboard-admin-user.yaml
 ```
 Finally, to obtain a bearer token, you'll need to run the following command:
 ```bash
-kubectl -n kube-system describe secret $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
+kubectl -n kube-system describe secret \
+  $(kubectl -n kube-system get secret | grep admin-user | awk '{print $1}')
 ```
 
 It should print some output to the screen like this:

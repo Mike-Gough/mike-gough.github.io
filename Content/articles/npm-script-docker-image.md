@@ -47,7 +47,9 @@ node_modules
 
 With our `Dockerfile` and `.dockerignore` files in place, we can now build our image by running the following command and replacing `<docker-hub-username>` with your Docker Hub username and `<image-name>` with something memorable:
 ```bash
-sudo docker build --no-cache --tag "<docker-hub-username>/<image-name>:latest" .
+sudo docker build \
+  --no-cache \
+  --tag "<docker-hub-username>/<image-name>:latest" .
 ```
 
 ![Docker build screenshot](/images/posts/npm-script-docker-build.svg)
@@ -55,7 +57,10 @@ sudo docker build --no-cache --tag "<docker-hub-username>/<image-name>:latest" .
 ## Running our image
 Having built a Docker image, we can now run it locally by using the following command and replacing `<docker-hub-username>` with your Docker Hub username and `<image-name>` with the name used earlier:
 ```bash
-sudo docker run --init --rm --volume $(pwd):/tmp "<docker-hub-username>/<image-name>:latest" <image-args>
+sudo docker run \
+  --init --rm \
+  --volume $(pwd):/tmp \
+  "<docker-hub-username>/<image-name>:latest" <image-args>
 ```
 
 ![Docker run screenshot](/images/posts/npm-script-docker-run.svg)
@@ -73,7 +78,8 @@ docker login
 ```
 Once successfully authenticated, we can push our image by running the following command and replacing `<docker-hub-username>` with your Docker Hub username and `<image-name>` with the name used earlier:
 ```bash
-sudo docker push "<docker-hub-username>/<image-name>:latest"
+sudo docker \
+  push "<docker-hub-username>/<image-name>:latest"
 ```
 
 ![Docker push screenshot](/images/posts/npm-script-docker-push.svg)

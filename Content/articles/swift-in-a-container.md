@@ -56,12 +56,15 @@ The above Docker file will create an image based on the official Swift Docker im
 
 To build an image containing our simple `hello world.swift` file, we can run the following command:
 ```bash
-docker build -t my-swift-image .
+docker build \
+  -t my-swift-image .
 ```
 
 Thats it! We've made a Docker image containing Swift and our `hello world.swift` file. To run our Docker container and execute the `hello world.swift` file, run the following command:
 ```bash
-docker run --rm my-swift-image "hello world.swift"
+docker run \
+  --rm my-swift-image \
+  "hello world.swift"
 ```
 You should now see `Hello, world!` printed on the terminal... But wait, doesn't that mean each time we make a change to our code we will have to re-build the docker image? While we certainally could do this, it wouldn't be the most efficient method available to us.
 
@@ -74,14 +77,19 @@ print("Hello, cruel world!")
 
 Using the following command to start a container with our custom image, attach the current directory to the `/app` folder and execute the `hello world.swift` file we just modified:
 ```bash
-docker run --rm -v $(pwd):/app -it my-swift-image "hello world.swift"
+docker run -it \
+  --rm -v $(pwd):/app \
+  my-swift-image \
+  "hello world.swift"
 ```
 You should now see `Hello, cruel world!` printed to the terminal!
 
 ### Using Swift interactivly inside a Docker container
 Another option would be to use the official Swift image instead of our custom one. To start a container with the official Swift Docker image, you can run the following command:
 ```bash
-docker run --rm -v "$(pwd)":/app -it swift
+docker run -it \
+  --rm -v "$(pwd)":/app \
+  swift
 ```
 This will create a temporary container running Swift in interactive mode, allowing you to execute Swift commands inside a terminal environment. Lets tell Swift to execute our  `hello world.swift` file by using the following command:
 ```bash

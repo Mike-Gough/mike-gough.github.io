@@ -15,7 +15,10 @@ Assuming that you already have a Git repository that contains a RAML Service Con
 ```bash
 #!/bin/sh
 echo "# Running RAML Enforcer"
-sudo docker run --init --rm --volume $(pwd):/tmp "mikeyryan/raml-enforcer:latest" /tmp/<main-raml-file-path>
+sudo docker run \
+  --init --rm \
+  --volume $(pwd):/tmp "mikeyryan/raml-enforcer:latest" \
+  /tmp/<main-raml-file-path>
 ```
 Hooks need to be executable, so you may need to change the file permissions of `pre-commit` if you're creating it from scratch. You can do so by running the following command:
 ```bash

@@ -11,7 +11,11 @@ To keep things simple we will assume you have access to a machine running macOS 
 ## Creating a MongoDB instance
 For this tutorial we will need to setup a local MongoDB instance that we can use for our Todo API. The following command starts a MongoDB container instance, allowing us to execute MongoDB statements against a database instance:
 ```bash
-docker run --name mongodb -d -p 27017-27019:27017-27019 -v ~/data:/data/db mongo:latest
+docker run -d \
+  --name mongodb \
+  -p 27017-27019:27017-27019 \
+  -v ~/data:/data/db \
+  mongo:latest
 ```
 
 ## Creating a Vapor project
@@ -31,19 +35,44 @@ import PackageDescription
 let package = Package(
     name: "vapor-todo-api",
     products: [
-        .library(name: "vapor-todo-api", targets: ["App"]),
+        .library(
+            name: "vapor-todo-api", 
+            targets: ["App"]
+        ),
     ],
     dependencies: [
         // 💧 A server-side Swift web framework.
-        .package(url: "https://github.com/vapor/vapor.git", from: "3.0.0"),
+        .package(
+            url: "https://github.com/vapor/vapor.git", 
+            from: "3.0.0"
+        ),
 
         // 🔵 Swift ORM (queries, models, relations, etc) built on Meow, MongoKitten.
-        .package(url: "https://github.com/OpenKitten/MeowVapor.git", from: "2.1.2")
+        .package(
+            url: "https://github.com/OpenKitten/MeowVapor.git", 
+            from: "2.1.2"
+        )
     ],
     targets: [
-        .target(name: "App", dependencies: ["MeowVapor", "Vapor"]),
-        .target(name: "Run", dependencies: ["App"]),
-        .testTarget(name: "AppTests", dependencies: ["App"])
+        .target(
+            name: "App", 
+            dependencies: [
+                "MeowVapor", 
+                "Vapor"
+            ]
+        ),
+        .target(
+            name: "Run", 
+            dependencies: [
+                "App"
+            ]
+        ),
+        .testTarget(
+            name: "AppTests", 
+            dependencies: [
+                "App"
+            ]
+        )
     ]
 )
 ```
@@ -53,9 +82,13 @@ import MeowVapor
 import Vapor
 
 // Called before your application initializes.
-public func configure(_ config: inout Config, _ env: inout Environment, _ services: inout Services) throws {
+public func configure(
+    _ config: inout Config, 
+    _ env: inout Environment, 
+    _ services: inout Services) throws {
     
-    let uri = Environment.get("MONGODB_URI") ?? "mongodb://localhost/tododb"
+    let uri = Environment.get("MONGODB_URI")
+        ?? "mongodb://localhost/tododb"
 
     // Configure a MongoDB database
     let meow = try MeowProvider(uri: uri)
@@ -69,9 +102,8 @@ public func configure(_ config: inout Config, _ env: inout Environment, _ servic
     services.register(router, as: Router.self)
 
     // Register middleware
-    var middlewares = MiddlewareConfig() // Create _empty_ middleware config
-    // middlewares.use(FileMiddleware.self) // Serves files from `Public/` directory
-    middlewares.use(ErrorMiddleware.self) // Catches errors and converts to HTTP response
+    var middlewares = MiddlewareConfig()
+    middlewares.use(ErrorMiddleware.self)
     services.register(middlewares)
 }
 ```
@@ -137,7 +169,9 @@ docker run --name vapor-todo-api -p 8080:80 vapor-todo-api-image
 ## Testing the Todo API
 Now that we have a running instance of a MongoDB database and our API, let's test it to ensure it works as expected. To insert a new Todo we can call the POST endpoint that we created using the Curl command:
 ```bash
-curl -X POST -H "Content-Type: application/json" -d '{"_id":"5e36366465da966614a18f46", "title":"My todo!"}' localhost/todos
+curl -X POST \
+  -H "Content-Type: application/json" -d '{"_id":"5e36366465da966614a18f46", "title":"My todo!"}' \
+   localhost/todos
 ```
 After running this command you should recieve a copy of the created Todo in the API response:
 ```bash
@@ -155,7 +189,9 @@ This should print the following to the screen:
 
 Now that we have verified our Todo was indded created, lets replace it using our PUT endpoint by running:
 ```bash
-curl -X PUT -H "Content-Type: application/json" -d '{"_id":"5e36366465da966614a18f46", "title":"My updated todo!"}' localhost/todos
+curl -X PUT \
+  -H "Content-Type: application/json" -d '{"_id":"5e36366465da966614a18f46", "title":"My updated todo!"}' \
+  localhost/todos
 ```
 You should recieve a copy of the updated Todo in the API response:
 ```bash
