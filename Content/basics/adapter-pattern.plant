@@ -1,0 +1,8 @@
+@startuml
+
+"Client" .> "JSON Adapter": HTTP
+"JSON Adapter" : GET /transactions
+"JSON Adapter" .> "Database Service": SQL
+"Database Service" : Execute(query)
+
+@enduml

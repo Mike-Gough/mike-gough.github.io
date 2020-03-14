@@ -1,0 +1,14 @@
+@startuml
+
+"Customer Facade" .> Customer
+
+"Customer Facade" : getFullName()
+"Customer Facade" : setFullName(first, middle, surname)
+Customer : getFirstName()
+Customer : getMiddleName()
+Customer : getSurname()
+Customer : setFirstName(arg)
+Customer : setMiddleName(arg)
+Customer : setSurname(arg)
+
+@enduml
