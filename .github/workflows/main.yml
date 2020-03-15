@@ -12,6 +12,12 @@ jobs:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
 
+    - name: setup-git-credentials
+      uses: fusion-engineering/setup-git-credentials@v2
+      with:
+        # git credentials use
+        credentials: ${{secrets.GIT_CREDENTIALS}}
+
     # Runs commands
     - name: Clone Publish
       run: |
