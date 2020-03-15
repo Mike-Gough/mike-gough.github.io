@@ -309,9 +309,7 @@ nav li {
     }
 
     .grid {
-        display: grid;
         grid-template-columns: repeat(1, 1fr);
-        grid-gap: 15px;
     }
     
     .compact>.grid,
@@ -322,6 +320,30 @@ nav li {
     .expanded>.grid {
         grid-template-columns: repeat(1, 1fr);
     }
+}
+
+@media(min-width: 601px) {
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .compact>.grid,
+    .compact.grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .expanded>.grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+.grid>* {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+    grid-gap: 15px;
 }
 
 h1,
@@ -350,7 +372,6 @@ a:hover {
 
 .item-list {
     margin-top: 10px;
-    display: table-cell;
 }
 
 .item-list>li a>p {
@@ -364,25 +385,6 @@ a:hover {
 .item-list h1 {
     margin-bottom: 4px;
     font-size: 1.3em;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 15px;
-}
-
-.compact>.grid,
-.compact.grid {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.expanded>.grid {
-    grid-template-columns: repeat(1, 1fr);
-}
-
-.grid>* {
-    display: flex;
 }
 
 article h1 a {
