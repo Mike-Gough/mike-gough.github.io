@@ -25,4 +25,5 @@ jobs:
         cd Publish
         make
         cd ..
+        /usr/local/bin/publish generate
         /usr/local/bin/publish deploy
