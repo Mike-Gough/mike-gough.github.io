@@ -18,4 +18,5 @@ jobs:
         git clone https://github.com/JohnSundell/Publish.git
         cd Publish
         make
-        publish deploy
+        cd ..
+        /usr/local/bin/publish deploy
