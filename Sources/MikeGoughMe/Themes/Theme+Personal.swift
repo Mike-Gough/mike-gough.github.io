@@ -7,7 +7,10 @@ public extension Theme {
     static var personal: Self {
         Theme(
             htmlFactory: PersonalHTMLFactory(),
-            resourcePaths: ["/Resources/PersonalTheme/styles.css"]
+            resourcePaths: [
+                "/Resources/PersonalTheme/fontawesome/all.min.css",
+                "/Resources/PersonalTheme/styles.css"
+            ]
         )
     }
 }
@@ -32,7 +35,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
         return HTML(
             .lang(context.site.language),
             .head(for: index, on: context.site),
-            .head(.link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"))),
+            .head(
+                .link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i")),
+                .link(.rel(.stylesheet),.href("/PersonalTheme/fontawesome/all.min.css"))
+            ),
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
@@ -42,7 +48,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
                             .class("section-header"),
                             .a(
                                 .href("/articles/"),
-                                .text("📅 Articles")
+                                .span(
+                                    .class("far fa-newspaper")
+                                ),
+                                .text("Articles")
                             )
                         ),
                         .a(
@@ -65,6 +74,9 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
                             .class("section-header"),
                             .a(
                                 .href("/basics/"),
+                                .span(
+                                    .class("far fa-lightbulb")
+                                ),
                                 .text("Basics")
                             )
                         ),
@@ -88,6 +100,9 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
                             .class("section-header"),
                             .a(
                                 .href("/tips/"),
+                                .span(
+                                    .class("far fa-star")
+                                ),
                                 .text("Tips")
                             )
                         ),
@@ -115,7 +130,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
         HTML(
             .lang(context.site.language),
             .head(for: section, on: context.site),
-            .head(.link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"))),
+            .head(
+                .link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i")),
+                .link(.rel(.stylesheet),.href("/PersonalTheme/fontawesome/all.min.css"))
+            ),
             .body(
                 .class(section.id.rawValue),
                 .header(for: context, selectedSection: section.id),
@@ -142,7 +160,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
         HTML(
             .lang(context.site.language),
             .head(for: item, on: context.site),
-            .head(.link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"))),
+            .head(
+                .link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i")),
+                .link(.rel(.stylesheet),.href("/PersonalTheme/fontawesome/all.min.css"))
+            ),
             .body(
                 .class("item-page"),
                 .header(for: context, selectedSection: item.sectionID),
@@ -206,7 +227,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
         HTML(
             .lang(context.site.language),
             .head(for: page, on: context.site),
-            .head(.link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"))),
+            .head(
+                .link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i")),
+                .link(.rel(.stylesheet),.href("/PersonalTheme/fontawesome/all.min.css"))
+            ),
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
@@ -222,7 +246,10 @@ private struct PersonalHTMLFactory<Site: Website>: HTMLFactory {
         HTML(
             .lang(context.site.language),
             .head(for: page, on: context.site),
-            .head(.link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i"))),
+            .head(
+                .link(.rel(.stylesheet),.href("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i")),
+                .link(.rel(.stylesheet),.href("/PersonalTheme/fontawesome/all.min.css"))
+            ),
             .body(
                 .header(for: context, selectedSection: nil),
                 .wrapper(
@@ -309,7 +336,27 @@ private extension Node where Context == HTML.BodyContext {
                 .if(sectionIDs.count > 1,
                     .nav(
                         .ul(.forEach(sectionIDs) { section in
-                            .li(.a(
+                            var icon = ""
+                            switch section.rawValue {
+                                case "articles":
+                                    icon = "far fa-newspaper"
+                                case "basics":
+                                    icon = "far fa-lightbulb"
+                                case "tips":
+                                    icon = "far fa-star"
+                                case "tags":
+                                    icon = "fas fa-hashtag"
+                                case "about":
+                                    icon = "far fa-user"
+                                default:
+                                    icon = ""
+                            }
+                            return .li(.a(
+                                .span(
+                                    .class(
+                                        icon
+                                    )
+                                ),
                                 .class(section == selectedSection ? "selected" : ""),
                                 .href(context.sections[section].path),
                                 .text(context.sections[section].title)

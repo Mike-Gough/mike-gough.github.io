@@ -290,8 +290,16 @@ nav li {
     line-height: 1.5em;
 }
 
+nav ul li span {
+    padding-right: 10px;
+}
+
 .section-header {
     display: inline-block;
+}
+
+.section-header > a > span {
+    padding-right: 10px;
 }
 
 .browse-all-link {
