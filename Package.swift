@@ -8,7 +8,7 @@ let package = Package(
         .executable(name: "MikeGoughMe", targets: ["MikeGoughMe"])
     ],
     dependencies: [
-        .package(url: "https://github.com/johnsundell/publish.git", from: "0.5.0"),
+        .package(url: "https://github.com/johnsundell/publish.git", from: "0.7.0"),
         .package(url: "https://github.com/SwiftyGuerrero/CNAMEPublishPlugin", from: "0.1.0"),
         .package(url: "https://github.com/wacumov/VerifyResourcesExistPublishPlugin", from: "0.1.0"),
         .package(url: "https://github.com/labradon/minifycsspublishplugin", from: "0.1.0"),
