@@ -26,7 +26,7 @@ As with any design pattern its important to understand examples of situations in
 
 Within a single applications code base, fine-graned APIs can provide a developers with a large number of methods which can be chained together in flexible ways to produce new features for customers. However, one of the consequences of such fine-grained behavious is that interactions between components become tightly coupled and typically require lots of method invocations. 
 
-This becomes particularly problematic with remote calls which are often orders of magnitude more expensive to perform since they typically require data to be serialised, authentication and authorisation checks to be performed, packets to be sent accross a network and so on. As a result a course-grained interface may be required in order to minimise the number of calls needed perform a function.
+This becomes particularly problematic with remote calls which are often orders of magnitude more expensive to perform since they typically require data to be serialised, authentication and authorisation checks to be performed, packets to be sent accross a network and so on. As a result, a course-grained interface may be required in order to minimise the number of calls needed perform a function.
 
 ## Structure
 The diagram below provides an example of a coarse-grained interface that's intended to be used by remote consumers that want to minimuse the number of calls needed to get something done:
@@ -35,7 +35,12 @@ The diagram below provides an example of a coarse-grained interface that's inten
 
 In this example all the facade does is transalte the coarse-grained methods it exposes into the underlying fine-grained methods in the Customer object.
 
+## Related Patterns
+The *Facade* pattern can be used to mitigate some of the disadvantages of the *canonical data model* pattern. It does so by defining simplified interfaces that don't expose canonical models. It acts as a translator which means any changes to the underlying canonical model won’t directly impact the interfaces exposed or their consumers. This can be a great benefit when changes to the canonical model occur frequently or are not in your control.
+
+One drawback of the *Facade* pattern in this regard is that can lead to an increased maintenance burden. It is not always practical to wrap and translate the whole canonical model as well as all of an applications underlying dependancies or third party libraries. This is because there is both an upfront cost for wrapping these components as well as a maintenance cost for managing changes for the transformation and integration logic over time.
+
 ## Summary
 Facades are a design pattern that can be used to simplify access to our code, by pre-defining a *limited* set of behaviours that can be called by a consumer. 
 
-That's a key part though, because Facades are only realy useful when the underlying code is complex, has many moving parts is difficult to understand or use. It often comes at the expense of limiting the features and flexibility available to consumers.
+That's a key part though, because Facades are only realy useful when the underlying code is complex, has many moving parts is difficult to understand or use. It often comes at the expense of limiting the features and flexibility available to consumers due to the maintenance cost of wrapping the underlying components.
