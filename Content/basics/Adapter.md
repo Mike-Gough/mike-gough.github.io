@@ -1,7 +1,7 @@
 ---
 date: 2020-03-10 18:00
 title: Adapters
-description: A look at what Adapters are, including what problems they can help solve in the realm of integration.
+description: A look at what Adapers are and how they can be used to allow components with incompatible interfaces to collaborate.
 tags: Basics, Structural Design Patterns
 ---
 

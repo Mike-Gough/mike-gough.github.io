@@ -1,7 +1,7 @@
 ---
 date: 2020-03-06 15:00
 title: Facades
-description: A look at what Facades are, including some of their features and examples of situations in which they can be useful.
+description: A look at what Facades are and how they can be used to provide a simplified interface to complex libraries and frameworks.
 tags: Basics, Structural Design Patterns
 ---
 
