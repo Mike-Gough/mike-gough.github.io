@@ -51,7 +51,7 @@
         )
     ]
 )
-</code></pre><p>MeowVapor is a wrapper for Meow and MongoKitten and provides us with a boiletplate-free object persitance framework for MongoDB and Swift, freeing us from the need to manage our database. After adding this dependancy we need to modiify the generated <code>Sources/App/configure.swift</code> file in order to set up the MongoDB driver instead of the default SQLite one. We are going to start by setting the database connection details based on an environment variable <code>MONGODB_URI</code>:</p><pre data-language="swift"><code><span class="hljs-keyword">import</span> MeowVapor
+</code></pre><p>MeowVapor is a wrapper for Meow and MongoKitten and provides us with a boiletplate-free object persitance framework for MongoDB and Swift, freeing us from the need to manage our database. After adding this dependancy we need to modify the generated <code>Sources/App/configure.swift</code> file in order to set up the MongoDB driver instead of the default SQLite one. We are going to start by setting the database connection details based on an environment variable <code>MONGODB_URI</code>:</p><pre data-language="swift"><code><span class="hljs-keyword">import</span> MeowVapor
 <span class="hljs-keyword">import</span> Vapor
 
 <span class="hljs-comment">// Called before your application initializes.</span>
